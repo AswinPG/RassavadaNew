@@ -94,6 +94,11 @@ namespace RassavadaNew.Experiences
         {
             await PopupNavigation.Instance.PushAsync(new SelectType());
         }
+
+        private async void Next(object sender, SelectionChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new ExperienceDetailPage());
+        }
     }
 
 
