@@ -11,11 +11,9 @@ using Xamarin.Forms.Xaml;
 namespace RassavadaNew.Experiences
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ExperiencesPage : ContentPage
+    public partial class ExperiencePage : ContentPage
     {
-
-
-        public ExperiencesPage()
+        public ExperiencePage()
         {
             InitializeComponent();
             List<Exper> Places = new List<Exper>
@@ -88,7 +86,7 @@ namespace RassavadaNew.Experiences
 
             };
             ExperienceCollectionView.ItemsSource = Places;
-            
+
 
         }
 
@@ -97,6 +95,6 @@ namespace RassavadaNew.Experiences
             await PopupNavigation.Instance.PushAsync(new SelectType());
         }
     }
-       
-    
+
+
 }

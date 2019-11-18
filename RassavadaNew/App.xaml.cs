@@ -10,7 +10,7 @@ namespace RassavadaNew
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Experiences.ExperiencesPage());
+            MainPage = new NavigationPage(new Packages.PackagePages());
         }
 
         protected override void OnStart()
