@@ -4,14 +4,93 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
+        <StackLayout Padding="10">
+            <StackLayout Padding="15" Orientation="Horizontal">
+                <forms:SvgCachedImage
+                    Margin="0,0,25,0"
+                    HeightRequest="20"
+                    HorizontalOptions="Start"
+                    Source="Shapeb.svg"
+                    VerticalOptions="Center">
+                    <!--<forms:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back" />
+                </forms:SvgCachedImage.GestureRecognizers>-->
+                </forms:SvgCachedImage>
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="19"
+                    Text="Verification"
+                    TextColor="Black"
+                    VerticalOptions="Center">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+            </StackLayout>
+
+            <ScrollView>
+                <StackLayout>
+                    <forms:SvgCachedImage Margin="0,20,0,20" Source="vercon.svg" />
+                    <Image
+                        Margin="0,10,0,20"
+                        HeightRequest="90"
+                        Source="icon.png"
+                        WidthRequest="90" />
+                    <Label
+                        FontAttributes="Bold"
+                        FontSize="22"
+                        HorizontalOptions="Center"
+                        Text="Stan Marton"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Label
+                        HorizontalOptions="Center"
+                        Text="stanmarton@outlook.com"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
+                    <StackLayout Padding="0,10,0,0">
+                        <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                    </StackLayout>
+
+                    <Label
+                        Margin="30,20,30,20"
+                        FontSize="16"
+                        HorizontalTextAlignment="Center"
+                        Text="You will have to wait for 24 hrs until your account gets verified"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Image Aspect="AspectFit" Source="Kidwalk.png" />
+                    <forms:SvgCachedImage BackgroundColor="Accent" Source="Go.svg" />
+                    <forms:SvgCachedImage Margin="10" Source="saveGradient.svg" />
+                </StackLayout>
+
+            </ScrollView>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
