@@ -29,7 +29,7 @@
 
 
         <CollectionView x:Name="ExperienceCollectionView"
-                        SelectionChanged="Next">
+                        SelectionChanged="Next">  <!--sdfghjklsdfghjkl-->
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
