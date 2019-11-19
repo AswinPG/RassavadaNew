@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RassavadaNew.AuthPages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace RassavadaNew
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new VerificationPage();
         }
 
         protected override void OnStart()
