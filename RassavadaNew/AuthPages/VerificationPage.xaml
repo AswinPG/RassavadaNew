@@ -7,6 +7,7 @@
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
     mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout Padding="10">
@@ -82,9 +83,16 @@
                             </OnPlatform>
                         </Label.FontFamily>
                     </Label>
-                    <Image Aspect="AspectFit" Source="Kidwalk.png" />
-                    <forms:SvgCachedImage BackgroundColor="Accent" Source="Go.svg" />
-                    <forms:SvgCachedImage Margin="10" Source="saveGradient.svg" />
+
+                    <Image Aspect="AspectFit" Source="kid.jpg" />
+                    <forms:SvgCachedImage Source="goot.svg" />
+                    <Button
+                        BackgroundColor="White"
+                        BorderColor="#54CD63"
+                        BorderWidth="1"
+                        CornerRadius="7"
+                        Text="Go"
+                        TextColor="#54CD63" />
                 </StackLayout>
 
             </ScrollView>
