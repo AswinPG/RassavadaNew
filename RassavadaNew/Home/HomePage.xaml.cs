@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RassavadaNew.Experiences;
+using RassavadaNew.Packages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +19,14 @@ namespace RassavadaNew.Home
             InitializeComponent();
         }
 
-        private void Expadded_Tapped(object sender, EventArgs e)
+        private async void Expadded_Tapped(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new ExperiencePage());
+            await Navigation.PushAsync(new ExperiencePage());
 
         }
-        private void Pkgcrtd_Tapped(object sender, EventArgs e)
+        private async void Pkgcrtd_Tapped(object sender, EventArgs e)
         {
-            //Navigation.PushAsync(new PackagePage());
+           await Navigation.PushAsync(new PackagePages());
 
         }
         private void Compro_Tapped(object sender, EventArgs e)
