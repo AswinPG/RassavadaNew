@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RassavadaNew.Experiences.ExperienceDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Image
+                    Aspect="AspectFill"
+                    HeightRequest="200"
+                    Source="dvbg.png" />
+                <Frame>
+                    <StackLayout Margin="10">
+                        <Label
+                            FontAttributes="Bold"
+                            FontSize="23"
+                            Text="Park View"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label
+                            FontSize="13"
+                            Text="New Delhi, India, 677589"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout Margin="10">
+                        <Label
+                            Margin="0,0,0,7"
+                            FontSize="Medium"
+                            Text="Basic Information"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Grid ColumnSpacing="15" RowSpacing="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition Width="auto" />
+
+                            </Grid.ColumnDefinitions>
+
+
+                            <forms:SvgCachedImage
+                                Grid.Row="0"
+                                Grid.Column="0"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                Source="type.svg"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="Local Tourist Place"
+                                VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+
+                            <forms:SvgCachedImage
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                Source="address.svg"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="New Delhi, India, 677589"
+                                VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+
+
+                            <forms:SvgCachedImage
+                                Grid.Row="2"
+                                Grid.Column="0"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                Source="time.svg"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="6 hrs"
+                                VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+
+
+                            <forms:SvgCachedImage
+                                Grid.Row="3"
+                                Grid.Column="0"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                Source="price.svg"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="3"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="Rs. 5000"
+                                VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+
+
+                            <forms:SvgCachedImage
+                                Grid.Row="4"
+                                Grid.Column="0"
+                                HeightRequest="15"
+                                HorizontalOptions="Start"
+                                Source="season.svg"
+                                VerticalOptions="Center" />
+
+                            <Label
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                HorizontalOptions="Start"
+                                Text="Seasonal spot"
+                                VerticalOptions="Center">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+
+                        </Grid>
+                        <forms:SvgCachedImage
+                            Margin="0,10,0,0"
+                            Aspect="AspectFit"
+                            HeightRequest="30"
+                            HorizontalOptions="Center"
+                            Source="editdetails.svg"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout Orientation="Vertical">
+                        <Label
+                            FontSize="Medium"
+                            Text="Photos"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <StackLayout />
+                        <Frame
+                            Padding="0"
+                            BackgroundColor="Red"
+                            CornerRadius="13"
+                            IsClippedToBounds="True">
+
+                            <Grid>
+                                <forms1:CachedImage
+                                    Aspect="AspectFill"
+                                    HeightRequest="150"
+                                    Source="dvbg.png" />
+                                <BoxView BackgroundColor="Black" Opacity="0.3" />
+                            </Grid>
+
+
+
+
+                        </Frame>
+                        <forms:SvgCachedImage
+                            Margin="0,20,0,10"
+                            HeightRequest="30"
+                            Source="addphoto.svg"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label
+                            FontSize="Medium"
+                            Text="Review Summary"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Label
+                            HorizontalTextAlignment="Start"
+                            LineBreakMode="CharacterWrap"   
+                            Text="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad  mniamnon. Lorem ipsum dolor sit amet, consectetur adip isc ing do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniam nonelit.">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

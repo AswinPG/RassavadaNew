@@ -19,16 +19,14 @@ namespace RassavadaNew.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
+
             base.OnCreate(savedInstanceState);
             Forms.SetFlags("CollectionView_Experimental");
-
-            //Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-
-            CachedImageRenderer.Init(true);
-
+            CachedImageRenderer.Init(true); 
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

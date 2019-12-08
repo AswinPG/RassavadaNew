@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RassavadaNew.Experiences.AddExperiencesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+
+        <StackLayout Margin="10,0,0,0" Orientation="Vertical">
+            <ScrollView>
+                <StackLayout>
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <Label
+                            FontSize="Medium"
+                            HorizontalOptions="StartAndExpand"
+                            Text="Basic Information"
+                            TextColor="Black"
+                            VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="End"
+                            Source="question.svg"
+                            VerticalOptions="Center">
+                            <forms:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Quest" />
+                            </forms:SvgCachedImage.GestureRecognizers>
+                        </forms:SvgCachedImage>
+                    </StackLayout>
+                    <StackLayout x:Name="Question" IsVisible="False">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon.">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+
+                        </Label>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="place.svg"
+                            VerticalOptions="Center" />
+                        <Label
+                            Text="Place Name"
+                            TextColor="Black"
+                            VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                    <Entry />
+                    <StackLayout Orientation="Horizontal">
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="address.svg"
+                            VerticalOptions="Center" />
+                        <Label
+                            Text="Location"
+                            TextColor="Black"
+                            VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                    <Entry />
+                    <StackLayout Orientation="Horizontal">
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="price.svg"
+                            VerticalOptions="Center" />
+                        <Label
+                            Text="Cost of Visit"
+                            TextColor="Black"
+                            VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                    <Entry />
+                    <StackLayout Orientation="Horizontal">
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="time.svg"
+                            VerticalOptions="Center" />
+                        <Label
+                            Text="Average time Spent"
+                            TextColor="Black"
+                            VerticalOptions="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                    <Entry />
+
+                    <Frame Margin="5,10,10,10" CornerRadius="5">
+                        <StackLayout>
+                            <StackLayout
+                                x:Name="Seasonal"
+                                HeightRequest="50"
+                                Orientation="Horizontal">
+                                <Label
+                                    x:Name="Option"
+                                    Margin="20,0,0,0"
+                                    HorizontalOptions="StartAndExpand"
+                                    Text="Seasonal or not"
+                                    TextColor="#CCCCCC"
+                                    VerticalOptions="Center" />
+                                <forms:SvgCachedImage
+                                    HeightRequest="40"
+                                    HorizontalOptions="End"
+                                    Source="line.svg" />
+                                <forms:SvgCachedImage
+                                    x:Name="Downarrow"
+                                    Margin="20"
+                                    HeightRequest="10"
+                                    HorizontalOptions="End"
+                                    Source="downArrow.svg"
+                                    VerticalOptions="Center" />
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="SeasonalChoose" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                            <StackLayout
+                                x:Name="Season"
+                                IsVisible="False"
+                                Spacing="10">
+                                <StackLayout>
+                                    <Label
+                                        Margin="20,0,0,10"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Seasonal" />
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Seasonaltype" />
+                                    </StackLayout.GestureRecognizers>
+
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label
+                                        Margin="20,0,0,10"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Non-Seasonal" />
+
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Nonseasonal" />
+                                    </StackLayout.GestureRecognizers>
+
+                                </StackLayout>
+                            </StackLayout>
+
+                        </StackLayout>
+                    </Frame>
+                    <Frame Margin="0,10,10,10" CornerRadius="5">
+                        <StackLayout>
+                            <Label
+                                HorizontalOptions="StartAndExpand"
+                                Text="Add a Photo"
+                                TextColor="Black">
+                                <Label.FontFamily>
+                                    <OnPlatform x:TypeArguments="x:String">
+                                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                    </OnPlatform>
+                                </Label.FontFamily>
+                            </Label>
+                        </StackLayout>
+                    </Frame>
+                    <StackLayout Margin="10" Orientation="Horizontal">
+                        <Label
+                            HorizontalOptions="StartAndExpand"
+                            Text="Add a Review"
+                            TextColor="Black">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <forms:SvgCachedImage
+                            HeightRequest="20"
+                            HorizontalOptions="End"
+                            Source="question.svg"
+                            VerticalOptions="Center" />
+                    </StackLayout>
+                    <StackLayout x:Name="Questions" IsVisible="False">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon.">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+
+                        </Label>
+
+                    </StackLayout>
+                    <Entry FontSize="Small" Placeholder="What's your opinion about this place?">
+                        <Entry.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Entry.FontFamily>
+                    </Entry>
+
+                </StackLayout>
+
+            </ScrollView>
+            <forms:SvgCachedImage
+                Margin="0,0,10,0"
+                HeightRequest="70"
+                HorizontalOptions="Center"
+                Source="saveGradient.svg"
+                VerticalOptions="End">
+                <forms:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next" />
+                </forms:SvgCachedImage.GestureRecognizers>
+            </forms:SvgCachedImage>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,5 +1,6 @@
 ﻿using RassavadaNew.AuthPages;
 using RassavadaNew.Home;
+﻿using RassavadaNew.Packages;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -12,7 +13,10 @@ namespace RassavadaNew
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoginPage());
+            MainPage = new NavigationPage(new LoginPage())
+            {
+                BarBackgroundColor = Color.FromHex("#0BBE22")
+            };
         }
 
         protected override void OnStart()
