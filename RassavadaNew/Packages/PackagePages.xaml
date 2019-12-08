@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+             x:Class="RassavadaNew.Packages.PackagePages"
+   xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+             mc:Ignorable="d"
+             >
+    <NavigationPage.TitleView>
+        <AbsoluteLayout>
+
+            <Image
+                HorizontalOptions="End"
+                Source="addpng.png"
+                VerticalOptions="Center">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Create" />
+                </Image.GestureRecognizers>
+            </Image>
+        </AbsoluteLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+
+        <ScrollView>
+            <CollectionView x:Name="PackageCollectionView">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame HasShadow="True">
+
+                            <Grid Padding="0,0,0,10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*" />
+                                    <ColumnDefinition Width="5*" />
+                                    <ColumnDefinition Width="20" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout>
+
+                                    <controls:CircleImage
+                                        Aspect="AspectFill"
+                                        HeightRequest="80"
+                                        Source="{Binding Picture}"
+                                        Margin="-10,0,0,-10"
+                                        HorizontalOptions="Start"
+                                        VerticalOptions="Center"/>
+
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="{Binding Package}"
+                                           FontSize="Medium">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium"></On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding Cost}"
+                                           FontAttributes="Bold"
+                                           FontSize="Small"
+                                           Margin="0,-15,0,0">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular"></On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                    <Label Text="{Binding Details}"
+                                           FontSize="Small"
+                                            Margin="0,-5,0,0">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular"></On>
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </StackLayout>
+                                <StackLayout Grid.Column="2">
+                                    <forms:SvgCachedImage Source="more.svg"
+                                                          HeightRequest="20"
+                                                          Margin="0,10,10,0">
+
+                                    </forms:SvgCachedImage>
+                                </StackLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>
