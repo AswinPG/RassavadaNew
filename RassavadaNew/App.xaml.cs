@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RassavadaNew.Packages;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,10 @@ namespace RassavadaNew
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new Experiences.ExperiencePage());
+            MainPage = new NavigationPage(new PackagePages())
+            {
+                BarBackgroundColor = Color.FromHex("#0BBE22")
+            };
         }
 
         protected override void OnStart()

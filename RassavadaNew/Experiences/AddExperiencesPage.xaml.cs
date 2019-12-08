@@ -52,12 +52,16 @@ namespace RassavadaNew.Experiences
         {
             Option.Text = "Seasonal";
             Option.TextColor = Color.FromHex("#000000");
+            Season.IsVisible = false;
+            Downarrow.RotateTo(0);
         }
 
         private void Nonseasonal(object sender, EventArgs e)
         {
             Option.Text = "Non-Seasonal";
             Option.TextColor = Color.FromHex("#000000");
+            Season.IsVisible = false;
+            Downarrow.RotateTo(0);
         }
 
       
@@ -79,7 +83,7 @@ namespace RassavadaNew.Experiences
 
         private async void Next(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new Experiences.ExperiencePage());
+            await Navigation.PopAsync();
         }
     }
 }

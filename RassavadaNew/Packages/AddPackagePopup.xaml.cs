@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,8 @@ namespace RassavadaNew.Packages
 
         private async void Next(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new EditPackagePage());
+            await Navigation.PopAsync();
+            PopupNavigation.Instance.PopAsync();
         }
     }
 }

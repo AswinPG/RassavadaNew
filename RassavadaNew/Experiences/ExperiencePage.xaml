@@ -28,31 +28,33 @@
     <ContentPage.Content>
 
 
-        <CollectionView x:Name="ExperienceCollectionView"
-                        SelectionChanged="Next">
+        <CollectionView
+            x:Name="ExperienceCollectionView"
+            ItemSizingStrategy="MeasureAllItems"
+            SelectionChanged="Next"
+            SelectionMode="Single">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame HasShadow="True"
-                          Margin="0,0,0,10" 
-                           BorderColor="#757575">
-                        
 
-
-                        <Grid Margin="0,0,0,10">
+                    <StackLayout
+                        BackgroundColor="White"
+                        Spacing="-10"
+                        VerticalOptions="StartAndExpand">
+                        <Grid Margin="0,0,0,10" VerticalOptions="StartAndExpand">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="50" />
+                                <RowDefinition Height="100" />
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="2*" />
                                 <ColumnDefinition Width="5*" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            
-                            <StackLayout>
+
+                            <StackLayout VerticalOptions="Center">
 
                                 <controls:CircleImage
-                                    Margin="0,0,0,0"
+                                    Margin="0,0,10,0"
                                     Aspect="AspectFill"
                                     HeightRequest="80"
                                     HorizontalOptions="Start"
@@ -60,7 +62,7 @@
                                     VerticalOptions="Center" />
 
                             </StackLayout>
-                            <StackLayout Grid.Column="1">
+                            <StackLayout Grid.Column="1" VerticalOptions="Center">
                                 <Label FontSize="Medium" Text="{Binding Name}">
                                     <Label.FontFamily>
                                         <OnPlatform x:TypeArguments="x:String">
@@ -79,26 +81,38 @@
                                         </OnPlatform>
                                     </Label.FontFamily>
                                 </Label>
-                                <Label
-                                    Margin="0,-5,0,0"
-                                    FontSize="Small"
-                                    Text="{Binding Details}">
-                                    <Label.FontFamily>
-                                        <OnPlatform x:TypeArguments="x:String">
-                                            <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
-                                        </OnPlatform>
-                                    </Label.FontFamily>
-                                </Label>
+                                <ScrollView Orientation="Horizontal">
+                                    <Label
+                                        Margin="0,-5,0,0"
+                                        FontSize="Small"
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding Details}">
+                                        <Label.FontFamily>
+                                            <OnPlatform x:TypeArguments="x:String">
+                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                            </OnPlatform>
+                                        </Label.FontFamily>
+                                    </Label>
+                                </ScrollView>
+
                             </StackLayout>
-                            <forms:SvgCachedImage
-                                Grid.Column="2"
-                                Margin="0,10,10,0"
-                                HeightRequest="10"
-                                Source="more.svg" />
-                            <StackLayout />
+                            <StackLayout Grid.Column="2" HorizontalOptions="End">
+                                <forms:SvgCachedImage
+                                    Margin="0,10,10,0"
+                                    HeightRequest="20"
+                                    Source="more.svg" />
+                                <StackLayout />
+                            </StackLayout>
+
 
                         </Grid>
-                    </Frame>
+
+                        <StackLayout Padding="0,0,0,4" Spacing="0">
+                            <BoxView BackgroundColor="LightGray" HeightRequest="1" />
+                        </StackLayout>
+
+                    </StackLayout>
+
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>

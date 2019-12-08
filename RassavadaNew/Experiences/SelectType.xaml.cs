@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rg.Plugins.Popup.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,21 +23,25 @@ namespace RassavadaNew.Experiences
             private async void TouristPlaces(object sender, EventArgs e)
             {
                 await Navigation.PushAsync(new AddExperiencesPage());
+                PopupNavigation.Instance.PopAsync();
             }
 
             private async void LocalPlaces(object sender, EventArgs e)
             {
                 await Navigation.PushAsync(new AddExperiencesPage());
+                PopupNavigation.Instance.PopAsync();
             }
 
             private async void Culture(object sender, EventArgs e)
             {
                 await Navigation.PushAsync(new AddExperiencesPage());
+                PopupNavigation.Instance.PopAsync();
             }
 
             private async void Historical(object sender, EventArgs e)
             {
                 await Navigation.PushAsync(new AddExperiencesPage());
+                PopupNavigation.Instance.PopAsync();
             }
 
         private async void Back(object sender, EventArgs e)

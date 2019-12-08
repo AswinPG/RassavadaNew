@@ -92,6 +92,8 @@ namespace RassavadaNew.Packages
         {
             await PopupNavigation.Instance.PushAsync(new AddPackagePopup());
         }
+
+        
     }
 
 }

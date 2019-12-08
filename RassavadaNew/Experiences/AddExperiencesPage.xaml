@@ -154,14 +154,20 @@
                                 IsVisible="False"
                                 Spacing="10">
                                 <StackLayout>
-                                    <Label HorizontalOptions="StartAndExpand" Text="Seasonal" />
+                                    <Label
+                                        Margin="20,0,0,10"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Seasonal" />
                                     <StackLayout.GestureRecognizers>
                                         <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Seasonaltype" />
                                     </StackLayout.GestureRecognizers>
 
                                 </StackLayout>
                                 <StackLayout>
-                                    <Label HorizontalOptions="StartAndExpand" Text="Non-Seasonal" />
+                                    <Label
+                                        Margin="20,0,0,10"
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="Non-Seasonal" />
 
 
                                     <StackLayout.GestureRecognizers>

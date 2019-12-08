@@ -1,14 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-             x:Class="RassavadaNew.Packages.PackagePages"
-   xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
-             xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-             mc:Ignorable="d"
-             >
+    x:Class="RassavadaNew.Packages.PackagePages"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <NavigationPage.TitleView>
         <AbsoluteLayout>
 
@@ -26,7 +25,10 @@
     <ContentPage.Content>
 
         <ScrollView>
-            <CollectionView x:Name="PackageCollectionView">
+            <CollectionView
+                x:Name="PackageCollectionView"
+                SelectionChanged="PlaceCollectionView_SelectionChanged"
+                SelectionMode="Single">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -44,49 +46,56 @@
                                 <StackLayout>
 
                                     <controls:CircleImage
+                                        Margin="-10,0,0,-10"
                                         Aspect="AspectFill"
                                         HeightRequest="80"
-                                        Source="{Binding Picture}"
-                                        Margin="-10,0,0,-10"
                                         HorizontalOptions="Start"
-                                        VerticalOptions="Center"/>
+                                        Source="{Binding Picture}"
+                                        VerticalOptions="Center" />
 
                                 </StackLayout>
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="{Binding Package}"
-                                           FontSize="Medium">
+                                    <Label
+                                        FontSize="Medium"
+                                        Text="{Binding Package}"
+                                        TextColor="Black">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium"></On>
+                                                <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-                                    <Label Text="{Binding Cost}"
-                                           FontAttributes="Bold"
-                                           FontSize="Small"
-                                           Margin="0,-15,0,0">
+                                    <Label
+                                        Margin="0,-15,0,0"
+                                        FontAttributes="Bold"
+                                        FontSize="Small"
+                                        Text="{Binding Cost}"
+                                        TextColor="Black">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular"></On>
+                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
                                             </OnPlatform>
                                         </Label.FontFamily>
                                     </Label>
-                                    <Label Text="{Binding Details}"
-                                           FontSize="Small"
-                                            Margin="0,-5,0,0">
-                                        <Label.FontFamily>
-                                            <OnPlatform x:TypeArguments="x:String">
-                                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular"></On>
-                                            </OnPlatform>
-                                        </Label.FontFamily>
-                                    </Label>
+                                    <ScrollView Orientation="Horizontal">
+                                        <Label
+                                            Margin="0,-5,0,0"
+                                            FontSize="Small"
+                                            Text="{Binding Details}">
+                                            <Label.FontFamily>
+                                                <OnPlatform x:TypeArguments="x:String">
+                                                    <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                                                </OnPlatform>
+                                            </Label.FontFamily>
+                                        </Label>
+                                    </ScrollView>
+
                                 </StackLayout>
                                 <StackLayout Grid.Column="2">
-                                    <forms:SvgCachedImage Source="more.svg"
-                                                          HeightRequest="20"
-                                                          Margin="0,10,10,0">
-
-                                    </forms:SvgCachedImage>
+                                    <forms:SvgCachedImage
+                                        Margin="0,10,10,0"
+                                        HeightRequest="20"
+                                        Source="more.svg" />
                                 </StackLayout>
 
                             </Grid>

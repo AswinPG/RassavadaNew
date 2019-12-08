@@ -17,7 +17,7 @@
             Orientation="Vertical"
             VerticalOptions="Center">
             <StackLayout.GestureRecognizers>
-                <TapGestureRecognizer Tapped="Back" NumberOfTapsRequired="1" />
+                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back" />
             </StackLayout.GestureRecognizers>
             <Label
                 Margin="0,20,0,0"

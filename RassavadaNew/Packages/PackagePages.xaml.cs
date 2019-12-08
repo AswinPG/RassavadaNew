@@ -83,6 +83,16 @@ namespace RassavadaNew.Packages
         {
             await Navigation.PushAsync(new CreatePackagePage());
         }
+
+        private async void PlaceCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PackageCollectionView.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new PackageDetailPage());
+            }
+
+            PackageCollectionView.SelectedItem = null;
+        }
     }
 
 
