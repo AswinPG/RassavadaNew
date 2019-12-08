@@ -51,9 +51,9 @@
                     HeightRequest="57"
                     Source="fb1.svg"
                     WidthRequest="269">
-                    <!--<forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Login" />
-                    </forms:SvgCachedImage.GestureRecognizers>-->
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
 
             </StackLayout>
@@ -65,9 +65,9 @@
                     HeightRequest="57"
                     Source="google1.svg"
                     WidthRequest="269">
-                    <!--<forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Login" />
-                    </forms:SvgCachedImage.GestureRecognizers>-->
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
 
             </StackLayout>

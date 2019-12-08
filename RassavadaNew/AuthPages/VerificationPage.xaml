@@ -8,6 +8,7 @@
     xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="White"
+    NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout Padding="10">
@@ -90,6 +91,7 @@
                         BackgroundColor="White"
                         BorderColor="#54CD63"
                         BorderWidth="1"
+                        Clicked="Button_Clicked"
                         CornerRadius="7"
                         Text="Go"
                         TextColor="#54CD63" />

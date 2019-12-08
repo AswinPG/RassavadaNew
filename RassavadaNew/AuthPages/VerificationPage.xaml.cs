@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RassavadaNew.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace RassavadaNew.AuthPages
         public VerificationPage()
         {
             InitializeComponent();
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new HomePage());
         }
     }
 }
