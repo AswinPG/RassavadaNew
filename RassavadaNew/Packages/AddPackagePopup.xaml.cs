@@ -21,7 +21,7 @@ namespace RassavadaNew.Packages
         private async void Next(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
-            PopupNavigation.Instance.PopAsync();
+            await PopupNavigation.Instance.PopAsync();
         }
     }
 }

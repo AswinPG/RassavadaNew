@@ -20,6 +20,34 @@ namespace RassavadaNew.Packages
                 new Pack
                 {
                     Picture="Mockpic.png",
+                    Package="Package 1",
+                    Cost="10,000",
+                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+                },
+                new Pack
+                {
+                    Picture="HomeSVG.png",
+                    Package="Package 2",
+                    Cost="10,000",
+                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+                },
+                 new Pack
+                {
+                    Picture="Mockpic.png",
+                    Package="Package 3",
+                    Cost="10,000",
+                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+                },
+                new Pack
+                {
+                    Picture="HomeSVG.png",
+                    Package="Package 4",
+                    Cost="10,000",
+                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+                },
+                new Pack
+                {
+                    Picture="Mockpic.png",
                     Package="Package",
                     Cost="10,000",
                     Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
@@ -33,35 +61,7 @@ namespace RassavadaNew.Packages
                 },
                  new Pack
                 {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                 new Pack
-                {
-                    Picture="Mockpic.png",
+                    Picture="HomeSVG.png",
                     Package="Package",
                     Cost="10,000",
                     Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."

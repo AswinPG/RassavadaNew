@@ -4,8 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
-    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     BackgroundColor="White"
     NavigationPage.HasNavigationBar="False"
@@ -19,9 +20,9 @@
                     HorizontalOptions="Start"
                     Source="Shapeb.svg"
                     VerticalOptions="Center">
-                    <!--<forms:SvgCachedImage.GestureRecognizers>
-                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Back" />
-                </forms:SvgCachedImage.GestureRecognizers>-->
+                    <forms:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                    </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
                 <Label
                     FontAttributes="Bold"
@@ -40,12 +41,16 @@
             <ScrollView>
                 <StackLayout>
                     <forms:SvgCachedImage Margin="0,20,0,20" Source="vercon.svg" />
-                    <Image
-                        Margin="0,10,0,20"
-                        HeightRequest="90"
-                        Source="icon.png"
-                        WidthRequest="90" />
+                    <ff:CachedImage
+                        HeightRequest="80"
+                        Source="HomeSVG.png"
+                        WidthRequest="80">
+                        <ff:CachedImage.Transformations>
+                            <fftransformations:CircleTransformation />
+                        </ff:CachedImage.Transformations>
+                    </ff:CachedImage>
                     <Label
+                        CharacterSpacing="1"
                         FontAttributes="Bold"
                         FontSize="22"
                         HorizontalOptions="Center"
@@ -58,6 +63,7 @@
                         </Label.FontFamily>
                     </Label>
                     <Label
+                        CharacterSpacing="1"
                         HorizontalOptions="Center"
                         Text="stanmarton@outlook.com"
                         TextColor="Black">

@@ -20,21 +20,21 @@ namespace RassavadaNew.Experiences
             {
                 new Exper
                 {
-                    Picture="Mockpic.png",
+                    Picture="dvbg.png",
                     Name="Park View",
                     Address="Address",
                     Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
                 },
                 new Exper
                 {
-                    Picture="Mockpic.png",
+                    Picture="dvbg.png",
                     Name="Park View",
                     Address="Address",
                     Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
                 },
                 new Exper
                 {
-                    Picture="Mockpic.png",
+                    Picture="dvbg.png",
                     Name="Park View",
                     Address="Address",
                     Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "

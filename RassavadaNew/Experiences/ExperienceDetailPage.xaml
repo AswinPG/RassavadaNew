@@ -227,7 +227,11 @@
                             Margin="0,20,0,10"
                             HeightRequest="30"
                             Source="addphoto.svg"
-                            VerticalOptions="Center" />
+                            VerticalOptions="Center">
+                            <forms:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Add_Photos_Tapped" />
+                            </forms:SvgCachedImage.GestureRecognizers>
+                        </forms:SvgCachedImage>
                     </StackLayout>
                 </Frame>
                 <Frame>
@@ -244,7 +248,7 @@
                         </Label>
                         <Label
                             HorizontalTextAlignment="Start"
-                            LineBreakMode="CharacterWrap"   
+                            LineBreakMode="CharacterWrap"
                             Text="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad  mniamnon. Lorem ipsum dolor sit amet, consectetur adip isc ing do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniam nonelit.">
                             <Label.FontFamily>
                                 <OnPlatform x:TypeArguments="x:String">

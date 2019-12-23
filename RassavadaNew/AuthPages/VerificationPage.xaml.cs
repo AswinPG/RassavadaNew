@@ -22,5 +22,10 @@ namespace RassavadaNew.AuthPages
         {
             await Navigation.PushAsync(new HomePage());
         }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }

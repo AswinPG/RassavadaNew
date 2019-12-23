@@ -4,7 +4,9 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
@@ -16,13 +18,69 @@
                     HorizontalOptions="Start"
                     Source="HomeSVG.png"
                     VerticalOptions="Start" />
-                <ffsvg:SvgCachedImage
-                    Margin="0,30,0,0"
-                    HeightRequest="200"
+                <ff:CachedImage
+                    Margin="0,10,0,0"
+                    HeightRequest="80"
+                    Source="HomeSVG.png"
+                    WidthRequest="80">
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label
+                    CharacterSpacing="1"
+                    FontAttributes="Bold"
+                    FontSize="22"
                     HorizontalOptions="Center"
-                    Source="prof.svg" />
+                    Text="Stan Marton"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label
+                    CharacterSpacing="1"
+                    HorizontalOptions="Center"
+                    Text="Local Giude Level 0"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <StackLayout
+                    Padding="30,10,30,10"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Poppins-SemiBold.ttf"
+                        HorizontalOptions="EndAndExpand"
+                        Text="100 Points &gt;"
+                        TextColor="Black" />
+                    <ProgressBar Progress=".25" ProgressColor="#8D05F8" />
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-SemiBold.ttf"
+                            HorizontalOptions="Start"
+                            Text="100"
+                            TextColor="Black" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-SemiBold.ttf"
+                            HorizontalOptions="EndAndExpand"
+                            Text="400"
+                            TextColor="Black" />
+                    </StackLayout>
+                </StackLayout>
+
                 <ffsvg:SvgCachedImage
-                    Margin="0,25,0,25"
+                    Margin="0,15,0,25"
                     HeightRequest="30"
                     HorizontalOptions="Center"
                     Source="leaderboard.svg" />

@@ -8,6 +8,11 @@ using Android.Widget;
 using Android.OS;
 using Xamarin.Forms;
 using FFImageLoading.Forms.Platform;
+using Plugin.CurrentActivity;
+using Android.Content;
+using RassavadaNew.Droid.Services;
+using RassavadaNew.Services;
+using RassavadaNew.Experiences;
 
 namespace RassavadaNew.Droid
 {
@@ -22,10 +27,12 @@ namespace RassavadaNew.Droid
 
             base.OnCreate(savedInstanceState);
             Forms.SetFlags("CollectionView_Experimental");
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            DependencyService.Register<IMultiMediaPickerService, MultiMediaPickerService>();
             CachedImageRenderer.Init(true); 
             LoadApplication(new App());
         }
@@ -35,5 +42,14 @@ namespace RassavadaNew.Droid
 
             base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
+
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
+
+            //MultiMediaPickerService.SharedInstance.OnActivityResult(requestCode, resultCode, data);
+            AddExperiencesPage._multiMediaPickerService.OnActivityResult(requestCode, resultCode, data);
+        }
+
     }
 }

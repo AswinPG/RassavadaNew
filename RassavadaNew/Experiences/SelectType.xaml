@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
     mc:Ignorable="d">
@@ -40,7 +41,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <StackLayout Grid.Row="0" Grid.Column="0">
+                <!--<StackLayout Grid.Row="0" Grid.Column="0">
                     <forms:SvgCachedImage
                         Margin="10,10,0,0"
                         HeightRequest="130"
@@ -79,6 +80,47 @@
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Historical" />
                         </forms:SvgCachedImage.GestureRecognizers>
                     </forms:SvgCachedImage>
+                </StackLayout>-->
+
+                <StackLayout Grid.Row="0" Grid.Column="0">
+                    <forms1:CachedImage
+                        Margin="10,10,0,0"
+                        HeightRequest="130"
+                        Source="ltp.png">
+                        <forms1:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TouristPlaces" />
+                        </forms1:CachedImage.GestureRecognizers>
+                    </forms1:CachedImage>
+                </StackLayout>
+                <StackLayout Grid.Row="0" Grid.Column="1">
+                    <forms1:CachedImage
+                        Margin="10,10,0,0"
+                        HeightRequest="130"
+                        Source="lf.png">
+                        <forms1:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LocalPlaces" />
+                        </forms1:CachedImage.GestureRecognizers>
+                    </forms1:CachedImage>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="0">
+                    <forms:SvgCachedImage
+                        Margin="10,10,0,20"
+                        HeightRequest="130"
+                        Source="lct.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Culture" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.Column="1">
+                    <forms1:CachedImage
+                        Margin="10,10,0,20"
+                        HeightRequest="130"
+                        Source="lhp.png">
+                        <forms1:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Historical" />
+                        </forms1:CachedImage.GestureRecognizers>
+                    </forms1:CachedImage>
                 </StackLayout>
 
             </Grid>
