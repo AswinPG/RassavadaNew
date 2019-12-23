@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="RassavadaNew.Profile.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <NavigationPage.TitleView>
+        <StackLayout
+            HorizontalOptions="FillAndExpand"
+            Orientation="Horizontal"
+            VerticalOptions="Center">
+            <Label
+                FontAttributes="Bold"
+                FontSize="21"
+                Text="Profile"
+                TextColor="White"
+                VerticalOptions="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+            <Label
+                Margin="0,0,15,0"
+                FontAttributes="Bold"
+                FontSize="16"
+                HorizontalOptions="EndAndExpand"
+                Text="Edit"
+                TextColor="White"
+                VerticalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Edit_Tapped" />
+                </Label.GestureRecognizers>
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
+        </StackLayout>
+
+    </NavigationPage.TitleView>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="0,10,0,0">
+                <ff:CachedImage
+                    Margin="0,10,0,0"
+                    HeightRequest="80"
+                    Source="HomeSVG.png"
+                    WidthRequest="80">
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label
+                    CharacterSpacing="1"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Text="Stan Marton"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label
+                    CharacterSpacing="1"
+                    HorizontalOptions="Center"
+                    Text="Local Guide Level 0"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <StackLayout
+                    Padding="30,10,30,10"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical">
+                    <Label
+                        FontAttributes="Bold"
+                        FontFamily="Poppins-SemiBold.ttf"
+                        HorizontalOptions="EndAndExpand"
+                        Text="100 Points &gt;"
+                        TextColor="Black" />
+                    <ProgressBar Progress=".25" ProgressColor="#8D05F8" />
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-SemiBold.ttf"
+                            HorizontalOptions="Start"
+                            Text="100"
+                            TextColor="Black" />
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-SemiBold.ttf"
+                            HorizontalOptions="EndAndExpand"
+                            Text="400"
+                            TextColor="Black" />
+                    </StackLayout>
+
+                </StackLayout>
+                <StackLayout Spacing="0">
+                    <BoxView
+                        Margin="0,20,0,20"
+                        BackgroundColor="LightGray"
+                        HeightRequest="1" />
+
+                    <Label
+                        Margin="30,10,30,10"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        FontSize="20"
+                        Text="No. of Contributions"
+                        TextColor="Black" />
+                    <Grid Margin="30,10,30,10" RowSpacing="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="6*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+                        <ff:CachedImage
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="PA.png"
+                            WidthRequest="20" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            Text="Packages Created"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            HorizontalOptions="End"
+                            Text="100"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <ff:CachedImage
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="EA.png"
+                            WidthRequest="20" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            Text="Experiences Added"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            HorizontalOptions="End"
+                            Text="67"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <ff:CachedImage
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            HeightRequest="20"
+                            HorizontalOptions="Start"
+                            Source="PAI.png"
+                            WidthRequest="20" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            Text="Photos Uploaded"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        <Label
+                            Grid.Row="2"
+                            Grid.Column="2"
+                            FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                            HorizontalOptions="End"
+                            Text="1033"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </StackLayout>
+                <StackLayout Padding="0,0,0,20" Spacing="6">
+                    <BoxView
+                        Margin="0,20,0,20"
+                        BackgroundColor="LightGray"
+                        HeightRequest="1" />
+
+                    <Label
+                        Margin="30,10,30,10"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        FontSize="20"
+                        Text="Pesonal Info"
+                        TextColor="Black" />
+                    <Label
+                        Margin="30,0,30,0"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        HorizontalOptions="Start"
+                        Text="Email:"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="30,0,30,0"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        HorizontalOptions="Start"
+                        Text="Phone Number:"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="30,0,30,0"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        HorizontalOptions="Start"
+                        Text="Address:"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                    <Label
+                        Margin="30,0,30,0"
+                        FontFamily="Poppins-Medium.ttf#Poppins-Medium"
+                        HorizontalOptions="Start"
+                        Text="Vehicle Status:"
+                        TextColor="Black"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

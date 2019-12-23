@@ -5,225 +5,321 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
 
 
+        <Grid>
 
-
-
-        <ScrollView Padding="15" VerticalOptions="FillAndExpand">
-            <StackLayout>
-                <Label
-                    FontAttributes="Bold"
-                    FontSize="30"
-                    HorizontalOptions="Start"
-                    Text="Get Started"
-                    TextColor="#131313"
-                    VerticalOptions="CenterAndExpand">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Medium.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Phone number"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    FontFamily="Poppins-Regular.ttf"
-                    Opacity="0.5"
-                    Text="+91"
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Email Id for communication"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    FontFamily="Poppins-Regular.ttf"
-                    Opacity="0.5"
-                    Text="+91"
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Name"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    Opacity="0.5"
-                    Text=""
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Current Location"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    Opacity="0.5"
-                    Text=""
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Home Town Location"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    Opacity="0.5"
-                    Text=""
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Age"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry
-                    Opacity="0.5"
-                    Text=""
-                    TextColor="#000000" />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="Gender"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Picker
-                    FontFamily="Poppins-Regular.ttf"
-                    Opacity=".5"
-                    TextColor="Black">
-                    <Picker.Items>
-                        <x:String>Male</x:String>
-                        <x:String>Female</x:String>
-                        <x:String>Other</x:String>
-                    </Picker.Items>
-                </Picker>
-                <StackLayout
-                    Padding="0,10,0,10"
-                    HorizontalOptions="FillAndExpand"
-                    Orientation="Horizontal">
+            <ScrollView Padding="15" VerticalOptions="FillAndExpand">
+                <StackLayout>
                     <Label
-                        Text="Do you have a Vehicle ?"
+                        FontAttributes="Bold"
+                        FontSize="30"
+                        HorizontalOptions="Start"
+                        Text="Get Started"
                         TextColor="#131313"
-                        VerticalOptions="Center"
-                        VerticalTextAlignment="Center">
+                        VerticalOptions="CenterAndExpand">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Medium.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Phone number"
+                        TextColor="#131313">
                         <Label.FontFamily>
                             <OnPlatform x:TypeArguments="x:String">
                                 <On Platform="Android" Value="Poppins-Regular.ttf" />
                             </OnPlatform>
                         </Label.FontFamily>
                     </Label>
-                    <Switch
-                        HorizontalOptions="EndAndExpand"
-                        IsToggled="False"
-                        OnColor="#54CD63"
-                        ThumbColor="Green"
-                        Toggled="Switch_Toggled" />
+                    <Entry
+                        FontFamily="Poppins-Regular.ttf"
+                        Opacity="0.5"
+                        Text="+91"
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Email Id for communication"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        FontFamily="Poppins-Regular.ttf"
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Name"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Current Location"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="CurrentLocEntry"
+                        Focused="CurrentLocEntry_Focused"
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Home Town Location"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="HomeTownLabel"
+                        Focused="HomeTownLabel_Focused"
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Age"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Gender"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Picker
+                        FontFamily="Poppins-Regular.ttf"
+                        Opacity=".5"
+                        TextColor="Black">
+                        <Picker.Items>
+                            <x:String>Male</x:String>
+                            <x:String>Female</x:String>
+                            <x:String>Other</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <StackLayout
+                        Padding="0,10,0,10"
+                        HorizontalOptions="FillAndExpand"
+                        Orientation="Horizontal">
+                        <Label
+                            Text="Do you have a Vehicle ?"
+                            TextColor="#131313"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-Regular.ttf" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                        <Switch
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="False"
+                            OnColor="#54CD63"
+                            ThumbColor="Green"
+                            Toggled="Switch_Toggled" />
+                    </StackLayout>
+                    <Label
+                        x:Name="VLabel"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        IsVisible="False"
+                        Text="Choose Type of Vehicle"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+
+                    <Picker
+                        x:Name="VPicker"
+                        FontFamily="Poppins-Regular.ttf"
+                        IsVisible="False"
+                        Opacity=".5"
+                        TextColor="Black">
+                        <Picker.Items>
+                            <x:String>Two Wheeler</x:String>
+                            <x:String>Three Wheeler</x:String>
+                            <x:String>Four Wheeler</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Button
+                        Margin="0,20,0,0"
+                        BackgroundColor="White"
+                        BorderColor="#54CD63"
+                        BorderWidth="1"
+                        Clicked="Upload_Photo_Clicked"
+                        CornerRadius="7"
+                        Text="Upload Your Photo"
+                        TextColor="#54CD63" />
+                    <Button
+                        Margin="0,20,0,0"
+                        BackgroundColor="White"
+                        BorderColor="#54CD63"
+                        BorderWidth="1"
+                        Clicked="Upload_Id_Clicked"
+                        CornerRadius="7"
+                        Text="Upload Your Photo ID"
+                        TextColor="#54CD63" />
+
+
+                    <forms:SvgCachedImage
+                        Margin="0,20,0,0"
+                        Aspect="AspectFill"
+                        Source="submitGradient.svg"
+                        VerticalOptions="EndAndExpand">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+
                 </StackLayout>
-                <Label
-                    x:Name="VLabel"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    IsVisible="False"
-                    Text="Choose Type of Vehicle"
-                    TextColor="#131313">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-
-                <Picker
-                    x:Name="VPicker"
-                    FontFamily="Poppins-Regular.ttf"
-                    IsVisible="False"
-                    Opacity=".5"
-                    TextColor="Black">
-                    <Picker.Items>
-                        <x:String>Two Wheeler</x:String>
-                        <x:String>Three Wheeler</x:String>
-                        <x:String>Four Wheeler</x:String>
-                    </Picker.Items>
-                </Picker>
-                <Button
-                    Margin="0,20,0,0"
-                    BackgroundColor="White"
-                    BorderColor="#54CD63"
-                    BorderWidth="1"
-                    Clicked="Upload_Photo_Clicked"
-                    CornerRadius="7"
-                    Text="Upload Your Photo"
-                    TextColor="#54CD63" />
-                <Button
-                    Margin="0,20,0,0"
-                    BackgroundColor="White"
-                    BorderColor="#54CD63"
-                    BorderWidth="1"
-                    Clicked="Upload_Id_Clicked"
-                    CornerRadius="7"
-                    Text="Upload Your Photo ID"
-                    TextColor="#54CD63" />
 
 
-                <forms:SvgCachedImage
-                    Margin="0,20,0,0"
-                    Aspect="AspectFill"
-                    Source="submitGradient.svg"
-                    VerticalOptions="EndAndExpand">
-                    <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
-                    </forms:SvgCachedImage.GestureRecognizers>
-                </forms:SvgCachedImage>
+            </ScrollView>
+            <maps:Map
+                x:Name="MainMap"
+                IsShowingUser="True"
+                IsVisible="False"
+                MapClicked="MainMap_MapClicked" />
+            <Button
+                x:Name="MapButton"
+                BackgroundColor="White"
+                BorderColor="#54CD63"
+                Clicked="MapButton_Clicked"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Choose this Location"
+                TextColor="#54CD63"
+                VerticalOptions="EndAndExpand" />
+            <Frame
+                x:Name="DetailFrame"
+                Margin="40,0,40,0"
+                HorizontalOptions="FillAndExpand"
+                IsVisible="False"
+                VerticalOptions="Center">
+                <StackLayout>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Name of this Location"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="LabelEntry"
+                        FontFamily="Poppins-Regular.ttf"
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Address of this Location"
+                        TextColor="#131313">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="AdrressEntry"
+                        FontFamily="Poppins-Regular.ttf"
+                        Opacity="0.5"
+                        Text=""
+                        TextColor="#000000" />
+                    <Button
+                        x:Name="MapDetailButton"
+                        BackgroundColor="White"
+                        BorderColor="#54CD63"
+                        Clicked="MapDetailButton_Clicked"
+                        HorizontalOptions="Center"
+                        Text="Update Data"
+                        TextColor="#54CD63"
+                        VerticalOptions="EndAndExpand" />
+                </StackLayout>
+            </Frame>
+            <ActivityIndicator
+                x:Name="MainActivityIndicator"
+                HeightRequest="100"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                VerticalOptions="Center"
+                WidthRequest="100"
+                Color="#54CD63" />
+            <Label
+                x:Name="ActivityLabel"
+                Margin="0,110,0,0"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Text="Getting Current Location"
+                TextColor="#131313"
+                VerticalOptions="Center">
+                <Label.FontFamily>
+                    <OnPlatform x:TypeArguments="x:String">
+                        <On Platform="Android" Value="Poppins-Regular.ttf" />
+                    </OnPlatform>
+                </Label.FontFamily>
+            </Label>
 
-            </StackLayout>
+        </Grid>
 
-
-        </ScrollView>
 
 
 

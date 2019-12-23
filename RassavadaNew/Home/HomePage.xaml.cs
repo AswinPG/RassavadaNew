@@ -1,5 +1,7 @@
 ﻿using RassavadaNew.Experiences;
+using RassavadaNew.LeaderBoard;
 using RassavadaNew.Packages;
+using RassavadaNew.Profile;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,13 +31,16 @@ namespace RassavadaNew.Home
            await Navigation.PushAsync(new PackagePages());
 
         }
-        private void Compro_Tapped(object sender, EventArgs e)
-        {
+        
 
+        private async void Profile_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ProfilePage());
         }
-        private void Secset_Tapped(object sender, EventArgs e)
-        {
 
+        private async void LeaderBoard_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new LeaderBoardPage());
         }
     }
 }

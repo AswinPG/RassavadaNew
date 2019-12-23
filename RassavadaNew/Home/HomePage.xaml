@@ -23,6 +23,9 @@
                     HeightRequest="80"
                     Source="HomeSVG.png"
                     WidthRequest="80">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
+                    </ff:CachedImage.GestureRecognizers>
                     <ff:CachedImage.Transformations>
                         <fftransformations:CircleTransformation />
                     </ff:CachedImage.Transformations>
@@ -43,7 +46,7 @@
                 <Label
                     CharacterSpacing="1"
                     HorizontalOptions="Center"
-                    Text="Local Giude Level 0"
+                    Text="Local Guide Level 0"
                     TextColor="Black">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
@@ -83,7 +86,11 @@
                     Margin="0,15,0,25"
                     HeightRequest="30"
                     HorizontalOptions="Center"
-                    Source="leaderboard.svg" />
+                    Source="leaderboard.svg">
+                    <ffsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LeaderBoard_Tapped" />
+                    </ffsvg:SvgCachedImage.GestureRecognizers>
+                </ffsvg:SvgCachedImage>
                 <BoxView HeightRequest="1" Color="#EFEFEF" />
 
                 <Grid Margin="25,20,25,25" VerticalOptions="EndAndExpand">
@@ -91,7 +98,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
+                        <!--<ColumnDefinition Width="*" />-->
                     </Grid.ColumnDefinitions>
                     <ffsvg:SvgCachedImage
                         Grid.Column="0"
@@ -119,11 +126,11 @@
                         HorizontalOptions="Center"
                         Source="compro.svg">
                         <ffsvg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Compro_Tapped" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
                         </ffsvg:SvgCachedImage.GestureRecognizers>
 
                     </ffsvg:SvgCachedImage>
-                    <ffsvg:SvgCachedImage
+                    <!--<ffsvg:SvgCachedImage
                         Grid.Column="3"
                         HeightRequest="80"
                         HorizontalOptions="Center"
@@ -132,7 +139,7 @@
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Secset_Tapped" />
                         </ffsvg:SvgCachedImage.GestureRecognizers>
 
-                    </ffsvg:SvgCachedImage>
+                    </ffsvg:SvgCachedImage>-->
                 </Grid>
             </StackLayout>
         </ScrollView>
