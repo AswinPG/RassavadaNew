@@ -20,7 +20,15 @@ namespace RassavadaNew.AuthPages
         private PermissionStatus status;
         public GetStartedPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch(Exception e)
+            {
+                DisplayAlert("Found Error GSI", e.ToString(), "ok");
+            }
+            
             //GetPermisions();
         }
 

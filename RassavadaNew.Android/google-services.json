@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "139956008988",
+    "firebase_url": "https://rassavada-20286.firebaseio.com",
+    "project_id": "rassavada-20286",
+    "storage_bucket": "rassavada-20286.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139956008988:android:f04cfbc14e0c31bd1087d9",
+        "android_client_info": {
+          "package_name": "com.companyname.RassavadaNew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139956008988-vv53km1adk868aj7uiqo8ipfdbiunn6j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.companyname.RassavadaNew",
+            "certificate_hash": "3af8f72a89c8a549f97baad40e6d2072f2c4c0f1"
+          }
+        },
+        {
+          "client_id": "139956008988-cnu7ao7e3fab4ikd7uqcceghpe4qq8q0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMuJd6U2OW8UKiq7mq93DhyqkKCF-lzMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139956008988-cnu7ao7e3fab4ikd7uqcceghpe4qq8q0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

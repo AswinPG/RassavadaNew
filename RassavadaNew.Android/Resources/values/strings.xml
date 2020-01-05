@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<resources>
+  <string name="facebook_app_name">Trouvailler</string>
+  <string name="facebook_app_id">493887417912102</string>
+  <string name="fb_login_protocol_scheme">fbxxxxxxxxxxxxx</string>
+</resources>

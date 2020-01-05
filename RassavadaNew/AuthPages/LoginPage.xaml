@@ -52,7 +52,7 @@
                     Source="fb1.svg"
                     WidthRequest="269">
                     <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FBTapped" />
                     </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
 
@@ -66,7 +66,7 @@
                     Source="google1.svg"
                     WidthRequest="269">
                     <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FB2Tapped" />
                     </forms:SvgCachedImage.GestureRecognizers>
                 </forms:SvgCachedImage>
 
