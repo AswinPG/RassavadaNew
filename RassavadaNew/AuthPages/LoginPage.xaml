@@ -11,67 +11,95 @@
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
-
-        <StackLayout>
-            <StackLayout Margin="0,75,0,0">
-                <StackLayout>
-                    <Image
-                        HeightRequest="160"
-                        Source="icon.png"
-                        WidthRequest="126" />
+        <Grid>
+            <StackLayout x:Name="MainLayout">
+                <StackLayout Margin="0,75,0,0">
+                    <StackLayout>
+                        <Image
+                            HeightRequest="160"
+                            Source="icon.png"
+                            WidthRequest="126" />
+                    </StackLayout>
+                    <StackLayout Margin="0,50,0,0">
+                        <Label
+                            CharacterSpacing="1"
+                            FontSize="25"
+                            HorizontalOptions="Center"
+                            Text="WELCOME!"
+                            TextColor="#000000"
+                            VerticalOptions="CenterAndExpand">
+                            <Label.FontFamily>
+                                <OnPlatform x:TypeArguments="x:String">
+                                    <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                                </OnPlatform>
+                            </Label.FontFamily>
+                        </Label>
+                    </StackLayout>
+                    <StackLayout Margin="0,15,0,0">
+                        <Label
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-Regular.ttf"
+                            FontSize="15"
+                            HorizontalOptions="Center"
+                            Text="Make a Log in with social media accounts"
+                            TextColor="#000000"
+                            VerticalOptions="CenterAndExpand" />
+                    </StackLayout>
                 </StackLayout>
+
                 <StackLayout Margin="0,50,0,0">
-                    <Label
-                        FontSize="25"
-                        HorizontalOptions="Center"
-                        Text="WELCOME!"
-                        TextColor="#000000"
-                        VerticalOptions="CenterAndExpand">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
+                    <forms:SvgCachedImage
+                        HeightRequest="57"
+                        Source="fb1.svg"
+                        WidthRequest="269">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FBTapped" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+
                 </StackLayout>
-                <StackLayout Margin="0,15,0,0">
-                    <Label
-                        FontAttributes="Bold"
-                        FontFamily="Poppins-Regular.ttf"
-                        FontSize="15"
-                        HorizontalOptions="Center"
-                        Text="Make a Log in with social media accounts"
-                        TextColor="#000000"
-                        VerticalOptions="CenterAndExpand" />
+                <StackLayout Margin="0,20,0,0">
+
+
+
+                    <forms:SvgCachedImage
+                        HeightRequest="57"
+                        Source="google1.svg"
+                        WidthRequest="269">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FB2Tapped" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+
                 </StackLayout>
-            </StackLayout>
-
-            <StackLayout Margin="0,50,0,0">
-                <forms:SvgCachedImage
-                    HeightRequest="57"
-                    Source="fb1.svg"
-                    WidthRequest="269">
-                    <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FBTapped" />
-                    </forms:SvgCachedImage.GestureRecognizers>
-                </forms:SvgCachedImage>
-
-            </StackLayout>
-            <StackLayout Margin="0,20,0,0">
-
-
-
-                <forms:SvgCachedImage
-                    HeightRequest="57"
-                    Source="google1.svg"
-                    WidthRequest="269">
-                    <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="FB2Tapped" />
-                    </forms:SvgCachedImage.GestureRecognizers>
-                </forms:SvgCachedImage>
 
             </StackLayout>
 
-        </StackLayout>
+            <Frame
+                x:Name="LoadingLayout"
+                Padding="10"
+                BackgroundColor="DarkGray"
+                CornerRadius="10"
+                HorizontalOptions="Center"
+                IsVisible="False"
+                Opacity=".9"
+                VerticalOptions="Center">
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <ActivityIndicator
+                        HeightRequest="70"
+                        IsRunning="True"
+                        WidthRequest="70"
+                        Color="White" />
+                    <Label
+                        FontFamily="Poppins-SemiBold.ttf"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Text="Loging you in.."
+                        TextColor="White" />
+                </StackLayout>
+            </Frame>
+
+        </Grid>
+
     </ContentPage.Content>
 </ContentPage>

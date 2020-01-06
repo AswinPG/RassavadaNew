@@ -41,7 +41,9 @@
                         </Label.FontFamily>
                     </Label>
                     <Entry
+                        x:Name="PhoneNoEntry"
                         FontFamily="Poppins-Regular.ttf"
+                        Keyboard="Telephone"
                         Opacity="0.5"
                         Text="+91"
                         TextColor="#000000" />
@@ -57,6 +59,7 @@
                         </Label.FontFamily>
                     </Label>
                     <Entry
+                        x:Name="CEmailEntry"
                         FontFamily="Poppins-Regular.ttf"
                         Opacity="0.5"
                         Text=""
@@ -73,6 +76,7 @@
                         </Label.FontFamily>
                     </Label>
                     <Entry
+                        x:Name="NameEntry"
                         Opacity="0.5"
                         Text=""
                         TextColor="#000000" />
@@ -122,6 +126,8 @@
                         </Label.FontFamily>
                     </Label>
                     <Entry
+                        x:Name="AgeEntry"
+                        Keyboard="Numeric"
                         Opacity="0.5"
                         Text=""
                         TextColor="#000000" />
@@ -137,6 +143,7 @@
                         </Label.FontFamily>
                     </Label>
                     <Picker
+                        x:Name="GenderPicker"
                         FontFamily="Poppins-Regular.ttf"
                         Opacity=".5"
                         TextColor="Black">
@@ -162,6 +169,7 @@
                             </Label.FontFamily>
                         </Label>
                         <Switch
+                            x:Name="HasVehicleSwitch"
                             HorizontalOptions="EndAndExpand"
                             IsToggled="False"
                             OnColor="#54CD63"
@@ -183,7 +191,8 @@
                     </Label>
 
                     <Picker
-                        x:Name="VPicker"
+                        x:Name="VechiclePicker"
+                        Title="Select"
                         FontFamily="Poppins-Regular.ttf"
                         IsVisible="False"
                         Opacity=".5"

@@ -31,7 +31,7 @@ namespace RassavadaNew.AuthPages
 
         }
 
-        private async void PermisionValidator(object sender, EventArgs e)
+        private async void PermisionValidator()
         {
             status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.LocationWhenInUse);
             if (status == PermissionStatus.Granted )
@@ -75,25 +75,33 @@ namespace RassavadaNew.AuthPages
         {
             try
             {
+                ChangeLook();
                 FacebookResponse<bool> response = await CrossFacebookClient.Current.LoginAsync(new string[] { "email", "public_profile" });
                 if (response.Status == FacebookActionStatus.Completed)
                 {
                     string result = await DependencyService.Get<IFireBaseAuthenticator>().LoginWithFaceBook(CrossFacebookClient.Current.ActiveToken);
                     if (result != null)
                     {
-                        PermisionValidator(sender, e);
+                        PermisionValidator();
                     }
                     else
+                    {
                         await DisplayAlert("FaceBook Authentication Failed", "Please try again..", "Ok");
+                        ChangeBackLook();
+                    }
+                        
+
                 }
                 else
                 {
                     await DisplayAlert("FaceBook Authentication Failed", "Please try again..", "Ok");
+                    ChangeBackLook();
                 }
             }
             catch (Exception x)
             {
                 await DisplayAlert("Authentication Failed", "Your Authentication Attempt Failed. Please try again..", "Ok");
+                ChangeBackLook();
             }
         }
 
@@ -101,11 +109,13 @@ namespace RassavadaNew.AuthPages
         {
             try
             {
+                ChangeLook();
                 _googleManager.Logout();
                 _googleManager.Login(OnLoginComplete);
             }
             catch(Exception x)
             {
+                ChangeBackLook();
                 await DisplayAlert("Authentication Failed", "Your Authentication Attempt Failed. Please try again..", "Ok");
             }
         }
@@ -113,16 +123,37 @@ namespace RassavadaNew.AuthPages
         {
             if (googleUser != null)
             {
-                GoogleUser = googleUser;
-
-                string result = await DependencyService.Get<IFireBaseAuthenticator>().LoginWithGoogle(googleUser.token,null)    ;
+                //GoogleUser = googleUser;
+                try
+                {
+                    string result = await DependencyService.Get<IFireBaseAuthenticator>().LoginWithGoogle(googleUser.token, null);
+                    PermisionValidator();
+                }
+                catch(Exception e)
+                {
+                    await DisplayAlert("Oops", "Firebase Error", "Ok");
+                    ChangeBackLook();
+                }
+                
 
                 //IsLogedIn = true;
             }
             else
             {
-                //_dialogService.DisplayAlertAsync("Error", message, "Ok");
+                ChangeBackLook();
+                await DisplayAlert("Error", message, "Ok");
             }
+        }
+
+        private void ChangeLook()
+        {
+            MainLayout.Opacity = .5;
+            LoadingLayout.IsVisible = true;
+        }
+        private void ChangeBackLook()
+        {
+            MainLayout.Opacity = 1;
+            LoadingLayout.IsVisible = false;
         }
     }
 }

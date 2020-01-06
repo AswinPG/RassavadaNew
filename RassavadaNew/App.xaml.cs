@@ -1,4 +1,5 @@
-﻿using RassavadaNew.AuthPages;
+﻿using RassavadaNew.API;
+using RassavadaNew.AuthPages;
 using RassavadaNew.Home;
 ﻿using RassavadaNew.Packages;
 using System;
@@ -12,6 +13,7 @@ namespace RassavadaNew
         public App()
         {
             InitializeComponent();
+            APIHelper.InitialiseClient();
 
             MainPage = new NavigationPage(new LoginPage())
             {

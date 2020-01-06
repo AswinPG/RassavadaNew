@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -41,6 +41,17 @@ namespace RassavadaNew.Home
         private async void LeaderBoard_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new LeaderBoardPage());
+        }
+
+        private async void Share_Tapped(object sender, EventArgs e)
+        {
+            await Share.RequestAsync(new ShareTextRequest
+            {
+                Text = "Join me on Rassavada",
+                Uri = "http://RassavadaStoreuri.com",
+                Title = "Rassavada",
+                Subject = "Rassavada blabh blah blah"
+            });
         }
     }
 }

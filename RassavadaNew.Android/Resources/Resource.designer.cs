@@ -8717,13 +8717,10 @@ namespace RassavadaNew.Droid
 			public const int path_password_strike_through = 2131558526;
 			
 			// aapt resource value: 0x7F0D007F
-			public const int project_id = 2131558527;
+			public const int search_menu_title = 2131558527;
 			
 			// aapt resource value: 0x7F0D0080
-			public const int search_menu_title = 2131558528;
-			
-			// aapt resource value: 0x7F0D0081
-			public const int status_bar_notification_info_overflow = 2131558529;
+			public const int status_bar_notification_info_overflow = 2131558528;
 			
 			static String()
 			{

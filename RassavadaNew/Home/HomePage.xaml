@@ -98,7 +98,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
-                        <!--<ColumnDefinition Width="*" />-->
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <ffsvg:SvgCachedImage
                         Grid.Column="0"
@@ -130,16 +130,16 @@
                         </ffsvg:SvgCachedImage.GestureRecognizers>
 
                     </ffsvg:SvgCachedImage>
-                    <!--<ffsvg:SvgCachedImage
+                    <ffsvg:SvgCachedImage
                         Grid.Column="3"
                         HeightRequest="80"
                         HorizontalOptions="Center"
                         Source="secset.svg">
                         <ffsvg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Secset_Tapped" />
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Share_Tapped" />
                         </ffsvg:SvgCachedImage.GestureRecognizers>
 
-                    </ffsvg:SvgCachedImage>-->
+                    </ffsvg:SvgCachedImage>
                 </Grid>
             </StackLayout>
         </ScrollView>
