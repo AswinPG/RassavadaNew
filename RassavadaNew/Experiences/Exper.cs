@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RassavadaNew.Experiences
 {
-    class Exper
+    public class Exper
     {
         public string Picture { get; set; }
         public string Name { get; set; }

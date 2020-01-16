@@ -112,6 +112,7 @@
                                         </Label.FontFamily>
                                     </Label>
                                 </ScrollView>
+                                <Label IsVisible="False" Text="{Binding docId}" />
 
                             </StackLayout>
                             <!--<StackLayout Grid.Column="2" HorizontalOptions="End">

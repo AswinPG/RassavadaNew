@@ -1,5 +1,6 @@
 ﻿using RassavadaNew.Experiences;
 using RassavadaNew.LeaderBoard;
+using RassavadaNew.Models;
 using RassavadaNew.Packages;
 using RassavadaNew.Profile;
 using System;
@@ -16,9 +17,14 @@ namespace RassavadaNew.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public HomePage()
+        public HomePage(RassavadaEntity rassavadaEntity)
         {
             InitializeComponent();
+            LevelLabel.Text = "Local Guide Level " + rassavadaEntity.level;
+            MainProgressVBar.Progress = rassavadaEntity.Points / (rassavadaEntity.high - rassavadaEntity.low);
+                PointsLabel.Text = rassavadaEntity.Points + " Points >";
+            LowPointsLabel.Text = rassavadaEntity.low.ToString();
+            HighPointsLabel.Text = rassavadaEntity.high.ToString();
         }
 
         private async void Expadded_Tapped(object sender, EventArgs e)

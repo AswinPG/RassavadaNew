@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:forms="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:forms1="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationPage.HasNavigationBar="False"
@@ -212,6 +213,25 @@
                         CornerRadius="7"
                         Text="Upload Your Photo"
                         TextColor="#54CD63" />
+                    <StackLayout
+                        x:Name="ImageLayout"
+                        Padding="20,5,20,5"
+                        HorizontalOptions="FillAndExpand"
+                        IsVisible="False"
+                        Orientation="Horizontal">
+                        <forms1:CachedImage
+                            x:Name="ProfileImage"
+                            Aspect="AspectFit"
+                            HeightRequest="80"
+                            HorizontalOptions="Start"
+                            WidthRequest="80" />
+                        <forms1:CachedImage
+                            x:Name="IDImage"
+                            Aspect="AspectFit"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            WidthRequest="80" />
+                    </StackLayout>
                     <Button
                         Margin="0,20,0,0"
                         BackgroundColor="White"

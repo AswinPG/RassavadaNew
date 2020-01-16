@@ -1,5 +1,6 @@
 ﻿using RassavadaNew.API;
 using RassavadaNew.AuthPages;
+using RassavadaNew.Experiences;
 using RassavadaNew.Home;
 ﻿using RassavadaNew.Packages;
 using System;
@@ -15,7 +16,7 @@ namespace RassavadaNew
             InitializeComponent();
             APIHelper.InitialiseClient();
 
-            MainPage = new NavigationPage(new LoginPage())
+            MainPage = new NavigationPage(new HomePage(new Models.RassavadaEntity() { }))
             {
                 BarBackgroundColor = Color.FromHex("#0BBE22")
             };

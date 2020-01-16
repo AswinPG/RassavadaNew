@@ -44,9 +44,10 @@
                     </Label.FontFamily>
                 </Label>
                 <Label
+                    x:Name="LevelLabel"
                     CharacterSpacing="1"
                     HorizontalOptions="Center"
-                    Text="Local Guide Level 0"
+                    Text="Local Guide Level x"
                     TextColor="Black">
                     <Label.FontFamily>
                         <OnPlatform x:TypeArguments="x:String">
@@ -60,24 +61,30 @@
                     HorizontalOptions="FillAndExpand"
                     Orientation="Vertical">
                     <Label
+                        x:Name="PointsLabel"
                         FontAttributes="Bold"
                         FontFamily="Poppins-SemiBold.ttf"
                         HorizontalOptions="EndAndExpand"
-                        Text="100 Points &gt;"
+                        Text="x Points &gt;"
                         TextColor="Black" />
-                    <ProgressBar Progress=".25" ProgressColor="#8D05F8" />
+                    <ProgressBar
+                        x:Name="MainProgressVBar"
+                        Progress=".25"
+                        ProgressColor="#8D05F8" />
                     <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                         <Label
+                            x:Name="LowPointsLabel"
                             FontAttributes="Bold"
                             FontFamily="Poppins-SemiBold.ttf"
                             HorizontalOptions="Start"
-                            Text="100"
+                            Text="-"
                             TextColor="Black" />
                         <Label
+                            x:Name="HighPointsLabel"
                             FontAttributes="Bold"
                             FontFamily="Poppins-SemiBold.ttf"
                             HorizontalOptions="EndAndExpand"
-                            Text="400"
+                            Text="+"
                             TextColor="Black" />
                     </StackLayout>
                 </StackLayout>

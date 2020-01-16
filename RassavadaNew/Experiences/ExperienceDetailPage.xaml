@@ -20,6 +20,7 @@
                 <Frame>
                     <StackLayout Margin="10">
                         <Label
+                            x:Name="HeadingLabel"
                             FontAttributes="Bold"
                             FontSize="23"
                             Text="Park View"
@@ -31,6 +32,7 @@
                             </Label.FontFamily>
                         </Label>
                         <Label
+                            x:Name="AddressLabel"
                             FontSize="13"
                             Text="New Delhi, India, 677589"
                             TextColor="Black">
@@ -79,6 +81,7 @@
                                 VerticalOptions="Center" />
 
                             <Label
+                                x:Name="ExpTypeLabel"
                                 Grid.Row="0"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -101,6 +104,7 @@
                                 VerticalOptions="Center" />
 
                             <Label
+                                x:Name="AddressLabel2"
                                 Grid.Row="1"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -124,6 +128,7 @@
                                 VerticalOptions="Center" />
 
                             <Label
+                                x:Name="TimeLabel"
                                 Grid.Row="2"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -147,6 +152,7 @@
                                 VerticalOptions="Center" />
 
                             <Label
+                                x:Name="AmountLabel"
                                 Grid.Row="3"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -170,6 +176,7 @@
                                 VerticalOptions="Center" />
 
                             <Label
+                                x:Name="SeasonalLabel"
                                 Grid.Row="4"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
@@ -247,6 +254,7 @@
                             </Label.FontFamily>
                         </Label>
                         <Label
+                            x:Name="ReviewLabel"
                             HorizontalTextAlignment="Start"
                             LineBreakMode="CharacterWrap"
                             Text="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad  mniamnon. Lorem ipsum dolor sit amet, consectetur adip isc ing do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniam nonelit.">

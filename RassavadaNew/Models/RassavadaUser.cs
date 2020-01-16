@@ -18,5 +18,9 @@ namespace RassavadaNew.Models
         public string CEmail { get; set; }
         public string VehicleType { get; set; }
         public string UserId { get; set; }
+        public string HomeName { get; set; }
+        public string HomeAddress { get; set; }
+
+
     }
 }
