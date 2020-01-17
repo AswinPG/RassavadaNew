@@ -93,7 +93,10 @@ namespace RassavadaNew.Packages
             await PopupNavigation.Instance.PushAsync(new AddPackagePopup());
         }
 
-        
+        private void PlaceCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
+        }
     }
 
 }

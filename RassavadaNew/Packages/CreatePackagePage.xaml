@@ -32,7 +32,16 @@
 
             <ScrollView>
                 <StackLayout>
-                    <CollectionView x:Name="PlaceCollectionView">
+                    <Label
+                        Margin="10,10,0,0"
+                        FontFamily="Poppins-Regular.ttf#Poppins-Regular"
+                        FontSize="15"
+                        Text="Select Experiences to be added"
+                        TextColor="Black" />
+                    <CollectionView
+                        x:Name="PlaceCollectionView"
+                        SelectionChanged="PlaceCollectionView_SelectionChanged"
+                        SelectionMode="Multiple">
 
                         <CollectionView.ItemTemplate>
 
@@ -40,7 +49,7 @@
                             <DataTemplate>
 
                                 <StackLayout
-                                    BackgroundColor="White"
+                                    BackgroundColor="Transparent"
                                     Spacing="-10"
                                     VerticalOptions="StartAndExpand">
                                     <Grid Margin="0,0,0,10" VerticalOptions="StartAndExpand">
@@ -103,20 +112,13 @@
                                             </ScrollView>
 
                                         </StackLayout>
-                                        <StackLayout
-                                            Grid.Column="2"
-                                            Padding="0,0,10,0"
-                                            HorizontalOptions="End"
-                                            VerticalOptions="Center">
-                                            <CheckBox Color="#0BBE22" />
 
-                                        </StackLayout>
 
 
 
                                     </Grid>
 
-                                    <StackLayout Padding="0,0,0,4" Spacing="0">
+                                    <StackLayout Padding="0" Spacing="0">
                                         <BoxView BackgroundColor="LightGray" HeightRequest="1" />
                                     </StackLayout>
 

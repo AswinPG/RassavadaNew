@@ -14,6 +14,7 @@
         <ScrollView>
             <StackLayout Orientation="Vertical">
                 <Image
+                    x:Name="TopImage"
                     Aspect="AspectFill"
                     HeightRequest="200"
                     Source="dvbg.png" />
@@ -63,7 +64,7 @@
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
                                 <RowDefinition Height="*" />
-                                <RowDefinition Height="*" />
+
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="20" />
@@ -143,15 +144,15 @@
 
 
 
-                            <forms:SvgCachedImage
+                            <!--<forms:SvgCachedImage
                                 Grid.Row="3"
                                 Grid.Column="0"
                                 HeightRequest="15"
                                 HorizontalOptions="Start"
                                 Source="price.svg"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center" />-->
 
-                            <Label
+                            <!--<Label
                                 x:Name="AmountLabel"
                                 Grid.Row="3"
                                 Grid.Column="1"
@@ -163,12 +164,12 @@
                                         <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
                                     </OnPlatform>
                                 </Label.FontFamily>
-                            </Label>
+                            </Label>-->
 
 
 
                             <forms:SvgCachedImage
-                                Grid.Row="4"
+                                Grid.Row="3"
                                 Grid.Column="0"
                                 HeightRequest="15"
                                 HorizontalOptions="Start"
@@ -177,7 +178,7 @@
 
                             <Label
                                 x:Name="SeasonalLabel"
-                                Grid.Row="4"
+                                Grid.Row="3"
                                 Grid.Column="1"
                                 HorizontalOptions="Start"
                                 Text="Seasonal spot"
@@ -196,7 +197,11 @@
                             HeightRequest="30"
                             HorizontalOptions="Center"
                             Source="editdetails.svg"
-                            VerticalOptions="Center" />
+                            VerticalOptions="Center">
+                            <forms:SvgCachedImage.GestureRecognizers>
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="TapGestureRecognizer_Tapped" />
+                            </forms:SvgCachedImage.GestureRecognizers>
+                        </forms:SvgCachedImage>
                     </StackLayout>
                 </Frame>
                 <Frame>
@@ -220,6 +225,7 @@
 
                             <Grid>
                                 <forms1:CachedImage
+                                    x:Name="PhotoFrame"
                                     Aspect="AspectFill"
                                     HeightRequest="150"
                                     Source="dvbg.png" />

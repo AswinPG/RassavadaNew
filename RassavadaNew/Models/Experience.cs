@@ -27,6 +27,7 @@ namespace RassavadaNew.Models
         public List<string> Images { get; set; }
         public ExpType expType { get; set; }
         public string docId { get; set; }
+        //public string Review { get; set; }
 
     }
 }

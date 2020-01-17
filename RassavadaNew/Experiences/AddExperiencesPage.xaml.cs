@@ -50,6 +50,36 @@ namespace RassavadaNew.Experiences
             };
         }
 
+
+        public AddExperiencesPage(Experience experience)
+        {
+            experience2 = experience;
+
+            AddressEntry.Text = experience2.Address;
+
+            TimeEntry.Text = experience2.AvgTime;
+            NameEntry.Text = experience2.Name;
+            DistFMC.Text = experience2.DistMajCentre;
+            DetailEntry.Text = experience2.Details;
+            MajorCityEntry.Text = experience2.MajCentre;
+            Season.IsVisible = experience2.Seasonal;
+            DetailEntry.Text = experience2.Details;
+            
+
+            _multiMediaPickerService.OnMediaPicked += (s, a) =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    Media.Add(a);
+
+                });
+
+            };
+        }
+
+
+
+
         private void Quest(object sender, EventArgs e)
         {
             if (Question.IsVisible == true)
@@ -183,7 +213,7 @@ namespace RassavadaNew.Experiences
 
 
 
-        private void Next(object sender, EventArgs e)
+        private async void Next(object sender, EventArgs e)
         {
             try
             {
@@ -214,7 +244,7 @@ namespace RassavadaNew.Experiences
                 if (AddressEntry.Text != null && TimeEntry.Text != null && NameEntry.Text != null && DistFMC.Text != null && DetailEntry != null && MajorCityEntry.Text != null && Media.Count >= 1)
                 {
                     experience2.Address = AddressEntry.Text;
-                    experience2.Seasonal = Season.IsVisible;
+                    experience2.Seasonal = SeasonFrame.IsVisible;
                     experience2.AvgTime = TimeEntry.Text;
                     experience2.Name = NameEntry.Text;
                     experience2.DistMajCentre = DistFMC.Text;
@@ -223,6 +253,7 @@ namespace RassavadaNew.Experiences
                     experience2.Long = MainMap.Pins[0].Position.Longitude.ToString();
                     experience2.MajCentre = MajorCityEntry.Text;
                     experience2.expType = ExpType.Cultural;
+                    
                     if(experience2.Seasonal == false)
                     {
                         experience2.Seasons.Add("");
@@ -246,6 +277,7 @@ namespace RassavadaNew.Experiences
                     var returnResponseText = responseReader.ReadToEnd();
                     //postParameters.
                     webResponse.Close();
+                    await Navigation.PopAsync();
                 }
                 
 
@@ -254,7 +286,7 @@ namespace RassavadaNew.Experiences
             }
             catch (Exception z)
             {
-
+                await DisplayAlert("There seems to be a problem", "Please check your internet connection and try again", "Ok");
             }
             //await Navigation.PopAsync();
         }

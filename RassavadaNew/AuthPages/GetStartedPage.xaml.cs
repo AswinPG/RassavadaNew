@@ -135,7 +135,8 @@ namespace RassavadaNew.AuthPages
             }
             catch (Exception)
             {
-                await DisplayAlert("Error", "Could not detect location", "Ok");
+                await DisplayAlert("Error", "Could not detect location, Please turn on your location services and try again", "Ok");
+                CurrentLocEntry.IsEnabled = true;
             }
             
 

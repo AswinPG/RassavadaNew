@@ -16,11 +16,16 @@ namespace RassavadaNew.Experiences
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExperienceDetailPage : ContentPage
     {
+
+        Experience experience;
         public ExperienceDetailPage(Object oexperience)
         {
             InitializeComponent();
-            Experience experience = (Experience)oexperience;
+            
+            experience = (Experience)oexperience;
             HeadingLabel.Text = experience.Name;
+            TopImage.Source = experience.Picture;
+            PhotoFrame.Source = experience.Picture;
             AddressLabel.Text = experience.Address;
             ExpTypeLabel.Text = experience.expType.ToString();
             AddressLabel2.Text = experience.Address;
@@ -31,6 +36,7 @@ namespace RassavadaNew.Experiences
             }
             else
                 SeasonalLabel.Text = "Non Seasonal";
+            ReviewLabel.Text = experience.Details;
         }
 
         private void Add_Photos_Tapped(object sender, EventArgs e)
@@ -51,6 +57,11 @@ namespace RassavadaNew.Experiences
                 return SelectedImage;
             }
             return null;
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddExperiencesPage(experience));
         }
     }
 }

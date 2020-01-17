@@ -21,10 +21,38 @@ namespace RassavadaNew.AuthPages
 
         RassavadaEntity rassavadaEntity = new RassavadaEntity();
         public string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageHome";
+        bool success = false;
         public VerificationPage()
         {
             InitializeComponent();
 
+            success = GetDetails();
+            
+
+            //Type type = Type.GetType(returnResponseText);
+            //object oClass = Activator.CreateInstance(type);
+            
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            if (success)
+                await Navigation.PushAsync(new HomePage(rassavadaEntity));
+            else
+            {
+                GetDetails();
+                Button_Clicked(sender, e);
+            }
+                
+        }
+
+        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+        private bool GetDetails()
+        {
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
@@ -34,25 +62,13 @@ namespace RassavadaNew.AuthPages
                 string returnResponseText = responseReader.ReadToEnd();
                 rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
                 webResponse.Close();
+                return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                DisplayAlert("Server Error", "Please restart the app", "Ok");
+                DisplayAlert("Server Error", "Please check your internet connection and try again", "Ok");
+                return false;
             }
-
-            //Type type = Type.GetType(returnResponseText);
-            //object oClass = Activator.CreateInstance(type);
-            
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new HomePage(rassavadaEntity));
-        }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
         }
     }
 }
