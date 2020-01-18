@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RassavadaNew.API;
+using RassavadaNew.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,6 +20,18 @@ namespace RassavadaNew.Packages
         public PackagePages()
         {
             InitializeComponent();
+
+            PackageList package = new PackageList()
+            {
+                Package = new List<Package>
+                {
+                    new Package
+                    {
+
+                    }
+                }
+            };
+
             List<Pack> ViewPackage = new List<Pack>
             {
                 new Pack
@@ -77,6 +94,28 @@ namespace RassavadaNew.Packages
 
             };
             PackageCollectionView.ItemsSource = ViewPackage;
+
+
+            try
+            {
+                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                postParameters.Add("UserId", "test");
+                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackDisplay";
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                string returnResponseText = responseReader.ReadToEnd();
+                //rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
+
+                package = JsonConvert.DeserializeObject<PackageList>(returnResponseText);
+                webResponse.Close();
+            }
+            catch (Exception e)
+            {
+                DisplayAlert("No Internet", "Please check your internet connection", "Ok");
+            }
+
+
+
         }
 
         private async void Create(object sender, EventArgs e)
@@ -95,5 +134,8 @@ namespace RassavadaNew.Packages
         }
     }
 
-
+    public class PackageList
+    {
+        public List<Package> Package { get; set; } 
+    }
 }

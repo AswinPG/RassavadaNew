@@ -1,7 +1,13 @@
-﻿using Rg.Plugins.Popup.Services;
+﻿using Newtonsoft.Json;
+using RassavadaNew.API;
+using RassavadaNew.Experiences;
+using RassavadaNew.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,15 +19,61 @@ namespace RassavadaNew.Packages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class AddPackagePopup : Rg.Plugins.Popup.Pages.PopupPage
     {
-        public AddPackagePopup()
+
+        Package package = new Package()
+        {
+            Experiences = new List<Experience>()
+        };
+        private Dictionary<string, object> postParameters;
+
+        public AddPackagePopup(ExperiencesList experiencesList)
         {
             InitializeComponent();
+            package.Experiences = experiencesList.Experience;
         }
+
+        public Dictionary<string, object> Dict { get; private set; }
 
         private async void Next(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
-            await PopupNavigation.Instance.PopAsync();
+
+            try
+            {
+                if(CostEntry.Text !="" && DetailEntry.Text != "" && NameEntry.Text != "")
+                {
+                    package.Cost = float.Parse(CostEntry.Text);
+                    package.Detail = DetailEntry.Text;
+                    package.Name = NameEntry.Text;
+                    package.Picture = package.Experiences[0].Picture;
+                }
+                
+
+
+
+                var json = JsonConvert.SerializeObject(package);
+                Dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+                postParameters = Dict;
+
+                postParameters.Add("UserId", "test");
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                // Process response  
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                var returnResponseText = responseReader.ReadToEnd();
+                //postParameters.
+                webResponse.Close();
+                await Navigation.PopAsync();
+                await PopupNavigation.Instance.PopAsync();
+            }
+            catch(Exception w)
+            {
+                await DisplayAlert("Server Down", "Please try again later", "Ok");
+            }
+            
+
+
+            
+            
         }
     }
 }

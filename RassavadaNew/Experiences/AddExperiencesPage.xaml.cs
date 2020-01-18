@@ -53,6 +53,12 @@ namespace RassavadaNew.Experiences
 
         public AddExperiencesPage(Experience experience)
         {
+            InitializeComponent();
+            experience2 = new Experience()
+            {
+                Seasons = new List<string>() { },
+                //Images = new List<string>() { }
+            };
             experience2 = experience;
 
             AddressEntry.Text = experience2.Address;
@@ -306,7 +312,7 @@ namespace RassavadaNew.Experiences
 
         private void MapButton_Clicked(object sender, EventArgs e)
         {
-            LocationEntry.Text = MainMap.Pins[0].Position.Latitude.ToString();
+            LocationEntry.Text = "Lat : " + MainMap.Pins[0].Position.Latitude.ToString() + "Long : " + MainMap.Pins[0].Position.Longitude.ToString();
             MainMap.IsVisible = false;
             MapButton.IsVisible = false;
         }

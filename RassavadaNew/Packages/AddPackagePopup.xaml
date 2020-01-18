@@ -11,72 +11,107 @@
 
     <pages:PopupPage.Content>
 
-        <Frame
-            Margin="30"
-            Padding="0"
-            HorizontalOptions="Start"
-            VerticalOptions="Center">
-            <Grid
-                Margin="20"
+        <ScrollView>
+            <Frame
+                Margin="30"
                 Padding="0"
-                BackgroundColor="White"
-                HorizontalOptions="Center"
+                HorizontalOptions="Start"
                 VerticalOptions="Center">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="50" />
-                    <RowDefinition Height="90" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-                <Label
-                    Margin="10"
-                    Text="Package Name"
-                    TextColor="Black">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry Grid.Row="1" Margin="10,0,10,0">
-                    <Entry.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
-                        </OnPlatform>
-                    </Entry.FontFamily>
-                </Entry>
-                <Label
-                    Grid.Row="2"
-                    Margin="10,0,10,0"
-                    Text="Cost"
-                    TextColor="Black">
-                    <Label.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
-                        </OnPlatform>
-                    </Label.FontFamily>
-                </Label>
-                <Entry Grid.Row="3" Margin="10,0,10,0">
-                    <Entry.FontFamily>
-                        <OnPlatform x:TypeArguments="x:String">
-                            <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
-                        </OnPlatform>
-                    </Entry.FontFamily>
-                </Entry>
-                <forms:SvgCachedImage
-                    Grid.Row="4"
-                    Margin="15,0,15,0"
-                    Source="doneGradient.svg">
-                    <forms:SvgCachedImage.GestureRecognizers>
-                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next" />
-                    </forms:SvgCachedImage.GestureRecognizers>
-                </forms:SvgCachedImage>
-            </Grid>
-        </Frame>
+                <Grid
+                    Margin="20"
+                    Padding="0"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="40" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="90" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Margin="10"
+                        Text="Package Name"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="NameEntry"
+                        Grid.Row="1"
+                        Margin="10,0,10,0"
+                        Text="">
+                        <Entry.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Entry.FontFamily>
+                    </Entry>
+                    <Label
+                        Grid.Row="2"
+                        Margin="10"
+                        Text="Package Detail"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="DetailEntry"
+                        Grid.Row="3"
+                        Margin="10,0,10,0"
+                        Text="">
+                        <Entry.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Entry.FontFamily>
+                    </Entry>
+                    <Label
+                        Grid.Row="4"
+                        Margin="10,0,10,0"
+                        Text="Cost"
+                        TextColor="Black">
+                        <Label.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Label.FontFamily>
+                    </Label>
+                    <Entry
+                        x:Name="CostEntry"
+                        Grid.Row="5"
+                        Margin="10,0,10,0"
+                        Text="">
+                        <Entry.FontFamily>
+                            <OnPlatform x:TypeArguments="x:String">
+                                <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+                            </OnPlatform>
+                        </Entry.FontFamily>
+                    </Entry>
+                    <forms:SvgCachedImage
+                        Grid.Row="6"
+                        Margin="15,0,15,0"
+                        Source="doneGradient.svg">
+                        <forms:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next" />
+                        </forms:SvgCachedImage.GestureRecognizers>
+                    </forms:SvgCachedImage>
+                </Grid>
+            </Frame>
+        </ScrollView>
+
 
 
 

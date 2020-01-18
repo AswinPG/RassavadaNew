@@ -29,24 +29,35 @@ namespace RassavadaNew.Home
 
         private async void Expadded_Tapped(object sender, EventArgs e)
         {
+            MainActivityIndicator.IsVisible = true;
+            MainActivityIndicator.IsRunning = true;
+            Loadinglabel.IsVisible = true;
             await Navigation.PushAsync(new ExperiencePage());
+            MainActivityIndicator.IsVisible = false;
+            MainActivityIndicator.IsRunning = false;
+            Loadinglabel.IsVisible = false;
 
         }
         private async void Pkgcrtd_Tapped(object sender, EventArgs e)
         {
-           await Navigation.PushAsync(new PackagePages());
-
+            LoadingLayout.IsVisible = true;
+            await Navigation.PushAsync(new PackagePages());
+            LoadingLayout.IsVisible = false;
         }
         
 
         private async void Profile_Tapped(object sender, EventArgs e)
         {
+            LoadingLayout.IsVisible = true;
             await Navigation.PushAsync(new ProfilePage());
+            LoadingLayout.IsVisible = false;
         }
 
         private async void LeaderBoard_Tapped(object sender, EventArgs e)
         {
+            LoadingLayout.IsVisible = true;
             await Navigation.PushAsync(new LeaderBoardPage());
+            LoadingLayout.IsVisible = false;
         }
 
         private async void Share_Tapped(object sender, EventArgs e)

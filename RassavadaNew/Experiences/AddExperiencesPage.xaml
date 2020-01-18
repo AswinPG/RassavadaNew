@@ -46,6 +46,7 @@
                         <forms:SvgCachedImage
                             HeightRequest="20"
                             HorizontalOptions="End"
+                            IsVisible="False"
                             Source="question.svg"
                             VerticalOptions="Center"
                             WidthRequest="20">
@@ -140,7 +141,7 @@
                             </Label.FontFamily>
                         </Label>
                     </StackLayout>
-                    <Entry x:Name="CostEntry" />
+                    <Entry x:Name="CostEntry" Keyboard="Numeric" />
                     <StackLayout Orientation="Horizontal">
                         <forms:SvgCachedImage
                             HeightRequest="20"
@@ -187,7 +188,7 @@
                             VerticalOptions="Center"
                             WidthRequest="20" />
                         <Label
-                            Text="Average Distance from Major Centre"
+                            Text="Average Distance from Major Centre in KM"
                             TextColor="Black"
                             VerticalOptions="Center">
                             <Label.FontFamily>
@@ -197,7 +198,7 @@
                             </Label.FontFamily>
                         </Label>
                     </StackLayout>
-                    <Entry x:Name="DistFMC" />
+                    <Entry x:Name="DistFMC" Keyboard="Numeric" />
 
 
                     <Frame Margin="5,10,10,10" CornerRadius="5">
@@ -476,6 +477,7 @@
                         <forms:SvgCachedImage
                             HeightRequest="20"
                             HorizontalOptions="End"
+                            IsVisible="False"
                             Source="question.svg"
                             VerticalOptions="Center" />
                     </StackLayout>
@@ -517,7 +519,7 @@
             <maps:Map
                 x:Name="MainMap"
                 IsShowingUser="True"
-                IsVisible="True"
+                IsVisible="False"
                 MapClicked="MainMap_MapClicked" />
             <Button
                 x:Name="MapButton"
