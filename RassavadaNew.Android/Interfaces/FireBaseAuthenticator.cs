@@ -29,7 +29,7 @@ namespace RassavadaNew.Droid.Interfaces
             var user = await FirebaseAuth.Instance.SignInWithCredentialAsync(cred);
             if (user != null)
             {
-                return user.User.DisplayName;
+                return user.User.Uid;
             }
             else
                 return null;
@@ -43,7 +43,7 @@ namespace RassavadaNew.Droid.Interfaces
             var user = await FirebaseAuth.Instance.SignInWithCredentialAsync(cred);
             if (user != null)
             {
-                return user.User.DisplayName;
+                return user.User.Uid;
             }
             else
                 return null;

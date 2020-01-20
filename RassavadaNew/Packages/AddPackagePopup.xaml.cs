@@ -25,15 +25,33 @@ namespace RassavadaNew.Packages
             ExpID = new List<string>()
         };
         private Dictionary<string, object> postParameters;
+        private string requestURL;
 
         public AddPackagePopup(ExperiencesList experiencesList)
         {
             InitializeComponent();
-            for(int i = 0; i < experiencesList.Experience.Count; i++)
+            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+            for (int i = 0; i < experiencesList.Experience.Count; i++)
             {
                 package.ExpID.Add(experiencesList.Experience[i].docId);
             }
             package.Picture = experiencesList.Experience[0].Picture;
+        }
+
+
+        public AddPackagePopup(ExperiencesList experiencesList, Package pack)
+        {
+            InitializeComponent();
+            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackUpdateEntry";
+            for (int i = 0; i < experiencesList.Experience.Count; i++)
+            {
+                package.ExpID.Add(experiencesList.Experience[i].docId);
+            }
+            package.Picture = experiencesList.Experience[0].Picture;
+            DetailEntry.Text = pack.Detail;
+            NameEntry.Text = pack.Name;
+            CostEntry.Text = pack.Cost;
+            package.docId = pack.docId;
         }
 
         public Dictionary<string, object> Dict { get; private set; }
@@ -53,7 +71,7 @@ namespace RassavadaNew.Packages
                     package.Cost = CostEntry.Text;
                     var json = JsonConvert.SerializeObject(package);
                     Dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-                    string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+                    
                     postParameters = Dict;
 
                     postParameters.Add("UserId", "test");
@@ -79,7 +97,7 @@ namespace RassavadaNew.Packages
             catch(Exception w)
             {
                 await DisplayAlert("Server Down", "Please try again later", "Ok");
-                SaveSvg.IsEnabled = false;
+                SaveSvg.IsEnabled = true;
             }
             
 

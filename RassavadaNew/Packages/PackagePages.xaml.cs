@@ -131,7 +131,7 @@ namespace RassavadaNew.Packages
             if (PackageCollectionView.SelectedItem != null)
             {
                 Package package = (Package)e.CurrentSelection[0];
-                await Navigation.PushAsync(new PackageDetailPage(package.docId));
+                await Navigation.PushAsync(new PackageDetailPage(package));
             }
 
             PackageCollectionView.SelectedItem = null;

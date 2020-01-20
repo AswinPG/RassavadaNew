@@ -11,6 +11,11 @@ using Plugin.Permissions.Abstractions;
 using Plugin.FacebookClient;
 using RassavadaNew.Interfaces;
 using RassavadaNew.Models;
+using RassavadaNew.Home;
+using System.Net;
+using RassavadaNew.API;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace RassavadaNew.AuthPages
 {
@@ -21,13 +26,13 @@ namespace RassavadaNew.AuthPages
         
 
         public static IGoogleAuthenticator _googleManager = DependencyService.Get<IGoogleAuthenticator>();
+
         public GoogleUser GoogleUser { get; private set; }
 
         public LoginPage()
         {
             InitializeComponent();
             GetPermisions();
-
 
         }
 
@@ -82,7 +87,9 @@ namespace RassavadaNew.AuthPages
                     string result = await DependencyService.Get<IFireBaseAuthenticator>().LoginWithFaceBook(CrossFacebookClient.Current.ActiveToken);
                     if (result != null)
                     {
+                        Application.Current.Properties["User"] = result;
                         PermisionValidator();
+
                     }
                     else
                     {
@@ -112,6 +119,7 @@ namespace RassavadaNew.AuthPages
                 ChangeLook();
                 _googleManager.Logout();
                 _googleManager.Login(OnLoginComplete);
+
             }
             catch(Exception x)
             {
@@ -127,14 +135,15 @@ namespace RassavadaNew.AuthPages
                 try
                 {
                     string result = await DependencyService.Get<IFireBaseAuthenticator>().LoginWithGoogle(googleUser.token, null);
+                    Application.Current.Properties["User"] = result;
                     PermisionValidator();
+
                 }
                 catch(Exception e)
                 {
                     await DisplayAlert("Oops", "Firebase Error", "Ok");
                     ChangeBackLook();
-                }
-                
+                }                
 
                 //IsLogedIn = true;
             }

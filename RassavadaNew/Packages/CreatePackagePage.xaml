@@ -15,7 +15,7 @@
 
 
         <Label
-            FontSize="16"
+            FontSize="20"
             Text="Add Package"
             TextColor="White"
             VerticalOptions="CenterAndExpand">
