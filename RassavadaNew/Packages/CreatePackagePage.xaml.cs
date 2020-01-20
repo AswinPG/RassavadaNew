@@ -54,7 +54,7 @@ namespace RassavadaNew.Packages
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
-                postParameters.Add("UserId", "test");
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 string returnResponseText = responseReader.ReadToEnd();

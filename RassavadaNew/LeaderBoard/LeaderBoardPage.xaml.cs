@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using RassavadaNew.API;
+using RassavadaNew.Models;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,84 +17,34 @@ namespace RassavadaNew.LeaderBoard
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LeaderBoardPage : ContentPage
     {
-        public LeaderBoardPage()
+        LeaderList leaderList = new LeaderList() { };
+        public LeaderBoardPage(RassavadaEntity rassavadaEntity)
         {
             InitializeComponent();
-            List<LeaderGuide> leaderGuides = new List<LeaderGuide>()
-            {
-                new LeaderGuide()
-                {
-                    Name = "Aswin PG",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "1"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Haris Wilson",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "2"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Rajath KS",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "3"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Stan Wert",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "4"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Michael Jordan",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "5"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Aswin PG",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "6"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Haris Wilson",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "7"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Rajath KS",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "8"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Stan Wert",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "9"
-                },
-                new LeaderGuide()
-                {
-                    Name = "Michael Jordan",
-                    ImgUrl = "HomeSVG.png",
-                    Points = "5656",
-                    Position = "10"
-                }
-            };
+            NameLabel.Text = rassavadaEntity.Name;
+            LevelLabel.Text = "Local Giude Level " + rassavadaEntity.level;
+            PointsLabel.Text = rassavadaEntity.Points + "";
 
-            MainCollectionView.ItemsSource = leaderGuides;
+
+            try
+            {
+                string requestURL = "";
+                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                string returnResponseText = responseReader.ReadToEnd();
+                //rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
+
+                leaderList = JsonConvert.DeserializeObject<LeaderList>(returnResponseText);
+                webResponse.Close();
+            }
+            catch (Exception e)
+            {
+                DisplayAlert("No Internet", "Please check your internet connection", "Ok");
+            }
+
+            MainCollectionView.ItemsSource = leaderList.Leaderdoard;
         }
     }
 }

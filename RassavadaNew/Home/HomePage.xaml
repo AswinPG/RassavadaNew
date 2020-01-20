@@ -7,180 +7,154 @@
     xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
     xmlns:ffsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
     xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:home="clr-namespace:RassavadaNew.Home"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     NavigationPage.HasNavigationBar="False"
     mc:Ignorable="d">
     <ContentPage.Content>
 
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-            <ScrollView>
-                <StackLayout>
-                    <ffsvg:SvgCachedImage
-                        Aspect="AspectFit"
-                        HorizontalOptions="Start"
-                        Source="HomeSVG.png"
-                        VerticalOptions="Start" />
-                    <ff:CachedImage
-                        Margin="0,10,0,0"
-                        HeightRequest="80"
-                        Source="HomeSVG.png"
-                        WidthRequest="80">
-                        <ff:CachedImage.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
-                        </ff:CachedImage.GestureRecognizers>
-                        <ff:CachedImage.Transformations>
-                            <fftransformations:CircleTransformation />
-                        </ff:CachedImage.Transformations>
-                    </ff:CachedImage>
+
+        <ScrollView>
+            <StackLayout>
+                <ffsvg:SvgCachedImage
+                    Aspect="AspectFit"
+                    HorizontalOptions="Start"
+                    Source="HomeSVG.png"
+                    VerticalOptions="Start" />
+                <ff:CachedImage
+                    Margin="0,10,0,0"
+                    HeightRequest="80"
+                    Source="HomeSVG.png"
+                    WidthRequest="80">
+                    <ff:CachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
+                    </ff:CachedImage.GestureRecognizers>
+                    <ff:CachedImage.Transformations>
+                        <fftransformations:CircleTransformation />
+                    </ff:CachedImage.Transformations>
+                </ff:CachedImage>
+                <Label
+                    CharacterSpacing="1"
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalOptions="Center"
+                    Text="Stan Marton"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+                <Label
+                    x:Name="LevelLabel"
+                    CharacterSpacing="1"
+                    HorizontalOptions="Center"
+                    Text="Local Guide Level x"
+                    TextColor="Black">
+                    <Label.FontFamily>
+                        <OnPlatform x:TypeArguments="x:String">
+                            <On Platform="Android" Value="Poppins-SemiBold.ttf" />
+                        </OnPlatform>
+                    </Label.FontFamily>
+                </Label>
+
+                <StackLayout
+                    Padding="30,10,30,10"
+                    HorizontalOptions="FillAndExpand"
+                    Orientation="Vertical">
                     <Label
-                        CharacterSpacing="1"
+                        x:Name="PointsLabel"
                         FontAttributes="Bold"
-                        FontSize="22"
-                        HorizontalOptions="Center"
-                        Text="Stan Marton"
-                        TextColor="Black">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
-                    <Label
-                        x:Name="LevelLabel"
-                        CharacterSpacing="1"
-                        HorizontalOptions="Center"
-                        Text="Local Guide Level x"
-                        TextColor="Black">
-                        <Label.FontFamily>
-                            <OnPlatform x:TypeArguments="x:String">
-                                <On Platform="Android" Value="Poppins-SemiBold.ttf" />
-                            </OnPlatform>
-                        </Label.FontFamily>
-                    </Label>
-
-                    <StackLayout
-                        Padding="30,10,30,10"
-                        HorizontalOptions="FillAndExpand"
-                        Orientation="Vertical">
+                        FontFamily="Poppins-SemiBold.ttf"
+                        HorizontalOptions="EndAndExpand"
+                        Text="x Points &gt;"
+                        TextColor="Black" />
+                    <ProgressBar
+                        x:Name="MainProgressVBar"
+                        Progress=".25"
+                        ProgressColor="#8D05F8" />
+                    <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                         <Label
-                            x:Name="PointsLabel"
+                            x:Name="LowPointsLabel"
+                            FontAttributes="Bold"
+                            FontFamily="Poppins-SemiBold.ttf"
+                            HorizontalOptions="Start"
+                            Text="-"
+                            TextColor="Black" />
+                        <Label
+                            x:Name="HighPointsLabel"
                             FontAttributes="Bold"
                             FontFamily="Poppins-SemiBold.ttf"
                             HorizontalOptions="EndAndExpand"
-                            Text="x Points &gt;"
+                            Text="+"
                             TextColor="Black" />
-                        <ProgressBar
-                            x:Name="MainProgressVBar"
-                            Progress=".25"
-                            ProgressColor="#8D05F8" />
-                        <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                            <Label
-                                x:Name="LowPointsLabel"
-                                FontAttributes="Bold"
-                                FontFamily="Poppins-SemiBold.ttf"
-                                HorizontalOptions="Start"
-                                Text="-"
-                                TextColor="Black" />
-                            <Label
-                                x:Name="HighPointsLabel"
-                                FontAttributes="Bold"
-                                FontFamily="Poppins-SemiBold.ttf"
-                                HorizontalOptions="EndAndExpand"
-                                Text="+"
-                                TextColor="Black" />
-                        </StackLayout>
                     </StackLayout>
-
-                    <ffsvg:SvgCachedImage
-                        Margin="0,15,0,25"
-                        HeightRequest="30"
-                        HorizontalOptions="Center"
-                        Source="leaderboard.svg">
-                        <ffsvg:SvgCachedImage.GestureRecognizers>
-                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LeaderBoard_Tapped" />
-                        </ffsvg:SvgCachedImage.GestureRecognizers>
-                    </ffsvg:SvgCachedImage>
-                    <BoxView HeightRequest="1" Color="#EFEFEF" />
-
-                    <Grid Margin="25,20,25,25" VerticalOptions="EndAndExpand">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <ffsvg:SvgCachedImage
-                            Grid.Column="0"
-                            HeightRequest="80"
-                            HorizontalOptions="Center"
-                            Source="expadded.svg">
-                            <ffsvg:SvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Expadded_Tapped" />
-                            </ffsvg:SvgCachedImage.GestureRecognizers>
-
-                        </ffsvg:SvgCachedImage>
-                        <ffsvg:SvgCachedImage
-                            Grid.Column="1"
-                            HeightRequest="80"
-                            HorizontalOptions="Center"
-                            Source="pkgcrtd.svg">
-                            <ffsvg:SvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Pkgcrtd_Tapped" />
-                            </ffsvg:SvgCachedImage.GestureRecognizers>
-
-                        </ffsvg:SvgCachedImage>
-                        <ffsvg:SvgCachedImage
-                            Grid.Column="2"
-                            HeightRequest="80"
-                            HorizontalOptions="Center"
-                            Source="compro.svg">
-                            <ffsvg:SvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
-                            </ffsvg:SvgCachedImage.GestureRecognizers>
-
-                        </ffsvg:SvgCachedImage>
-                        <ffsvg:SvgCachedImage
-                            Grid.Column="3"
-                            HeightRequest="80"
-                            HorizontalOptions="Center"
-                            Source="secset.svg">
-                            <ffsvg:SvgCachedImage.GestureRecognizers>
-                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Share_Tapped" />
-                            </ffsvg:SvgCachedImage.GestureRecognizers>
-
-                        </ffsvg:SvgCachedImage>
-                    </Grid>
                 </StackLayout>
-            </ScrollView>
-            <StackLayout
-                x:Name="LoadingLayout"
-                Padding="0,120,0,0"
-                HorizontalOptions="Center"
-                IsVisible="False"
-                VerticalOptions="Center">
-                <ActivityIndicator
-                    x:Name="MainActivityIndicator"
-                    HeightRequest="80"
-                    HorizontalOptions="Center"
-                    IsRunning="True"
-                    IsVisible="True"
-                    VerticalOptions="Center"
-                    WidthRequest="80"
-                    Color="Green" />
-                <Label
-                    x:Name="Loadinglabel"
-                    BackgroundColor="White"
-                    CharacterSpacing="1"
-                    FontAttributes="Bold"
-                    FontFamily="Poppins-SemiBold.ttf"
-                    HorizontalOptions="Center"
-                    IsVisible="True"
-                    Text="Loading .."
-                    TextColor="Black" />
 
+                <ffsvg:SvgCachedImage
+                    Margin="0,15,0,25"
+                    HeightRequest="30"
+                    HorizontalOptions="Center"
+                    Source="leaderboard.svg">
+                    <ffsvg:SvgCachedImage.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="LeaderBoard_Tapped" />
+                    </ffsvg:SvgCachedImage.GestureRecognizers>
+                </ffsvg:SvgCachedImage>
+                <BoxView HeightRequest="1" Color="#EFEFEF" />
+
+                <Grid Margin="25,20,25,25" VerticalOptions="EndAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <ffsvg:SvgCachedImage
+                        Grid.Column="0"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        Source="expadded.svg">
+                        <ffsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Expadded_Tapped" />
+                        </ffsvg:SvgCachedImage.GestureRecognizers>
+
+                    </ffsvg:SvgCachedImage>
+                    <ffsvg:SvgCachedImage
+                        Grid.Column="1"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        Source="pkgcrtd.svg">
+                        <ffsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Pkgcrtd_Tapped" />
+                        </ffsvg:SvgCachedImage.GestureRecognizers>
+
+                    </ffsvg:SvgCachedImage>
+                    <ffsvg:SvgCachedImage
+                        Grid.Column="2"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        Source="compro.svg">
+                        <ffsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Profile_Tapped" />
+                        </ffsvg:SvgCachedImage.GestureRecognizers>
+
+                    </ffsvg:SvgCachedImage>
+                    <ffsvg:SvgCachedImage
+                        Grid.Column="3"
+                        HeightRequest="80"
+                        HorizontalOptions="Center"
+                        Source="secset.svg">
+                        <ffsvg:SvgCachedImage.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Share_Tapped" />
+                        </ffsvg:SvgCachedImage.GestureRecognizers>
+
+                    </ffsvg:SvgCachedImage>
+                </Grid>
             </StackLayout>
-        </Grid>
+        </ScrollView>
+
 
     </ContentPage.Content>
 </ContentPage>

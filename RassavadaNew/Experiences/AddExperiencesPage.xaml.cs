@@ -3,7 +3,9 @@ using Plugin.Permissions;
 using Plugin.Permissions.Abstractions;
 using RassavadaNew.API;
 using RassavadaNew.Models;
+using RassavadaNew.Popups;
 using RassavadaNew.Services;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -57,6 +59,7 @@ namespace RassavadaNew.Experiences
         public AddExperiencesPage(Experience experience)
         {
             InitializeComponent();
+            TitleLabel.Text = "Edit Experience";
             url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpUpdate";
             experience2 = new Experience()
             {
@@ -261,9 +264,11 @@ namespace RassavadaNew.Experiences
                 //    MajCentre = "jj",
                 //    Picture = "njnj"
                 //};
+                
 
                 if (AddressEntry.Text != null && TimeEntry.Text != null && NameEntry.Text != null && DistFMC.Text != null && DetailEntry != null && MajorCityEntry.Text != null && Media.Count != 0)
                 {
+                    await PopupNavigation.Instance.PushAsync(new LoadingPopup());
                     experience2.Address = AddressEntry.Text;
                     experience2.Seasonal = SeasonFrame.IsVisible;
                     experience2.AvgTime = TimeEntry.Text;
@@ -303,7 +308,7 @@ namespace RassavadaNew.Experiences
                         
                     }
                     
-                    postParameters.Add("UserId", "test");
+                    postParameters.Add("UserId", Application.Current.Properties["User"]);
                     HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                     // Process response  
                     StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
@@ -311,6 +316,11 @@ namespace RassavadaNew.Experiences
                     //postParameters.
                     webResponse.Close();
                     await Navigation.PopAsync();
+                    await PopupNavigation.Instance.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Compplete Form", "You must fill in all the details. You must add at least one image to update the data.", "Ok");
                 }
                 
 
@@ -320,6 +330,7 @@ namespace RassavadaNew.Experiences
             catch (Exception z)
             {
                 await DisplayAlert("There seems to be a problem", "Please check your internet connection and try again. You must add at least one image to update the data.", "Ok");
+                await PopupNavigation.Instance.PopAsync();
             }
             //await Navigation.PopAsync();
         }

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+    x:Class="RassavadaNew.Popups.LoadingPopup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    mc:Ignorable="d">
+    <pages:PopupPage.Content>
+        <StackLayout
+            x:Name="LoadingLayout"
+            Padding="0,120,0,0"
+            HorizontalOptions="Center"
+            IsVisible="True"
+            VerticalOptions="Center">
+            <ActivityIndicator
+                x:Name="MainActivityIndicator"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                IsRunning="True"
+                IsVisible="True"
+                VerticalOptions="Center"
+                WidthRequest="80"
+                Color="Green" />
+            <Label
+                x:Name="Loadinglabel"
+                BackgroundColor="White"
+                CharacterSpacing="1"
+                FontAttributes="Bold"
+                FontFamily="Poppins-SemiBold.ttf"
+                HorizontalOptions="Center"
+                IsVisible="True"
+                Text="Loading .."
+                TextColor="Black" />
+
+        </StackLayout>
+    </pages:PopupPage.Content>
+</pages:PopupPage>

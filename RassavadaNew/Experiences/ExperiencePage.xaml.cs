@@ -36,7 +36,7 @@ namespace RassavadaNew.Experiences
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
-                postParameters.Add("UserId", "test");
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 string returnResponseText = responseReader.ReadToEnd();
@@ -49,83 +49,15 @@ namespace RassavadaNew.Experiences
             {
                 DisplayAlert("No Internet", "Please check your internet connection", "Ok");
             }
-
-
-
-            //List<Exper> Places = new List<Exper>
-            //{
-            //    new Exper
-            //    {
-            //        Picture="dvbg.png", 
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="dvbg.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="dvbg.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //     new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //     new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-            //    new Exper
-            //    {
-            //        Picture="Mockpic.png",
-            //        Name="Park View",
-            //        Address="Address",
-            //        Details="Just as the transistor revolutionized electronics by offering more flexibility, convenience, and reliability than the vacuum tube, the integrated circuit enables new applications for electronics that were not possible with discrete devices. Integration allows complex circuits consisting of many thousands of transistors, diodes, resistors, and capacitors to be included in a chip of semiconductor. "
-            //    },
-
-
-
-            //};
             ExperienceCollectionView.ItemsSource = experiences.Experience;
 
 
         }
 
+        private async void PopPopup()
+        {
+            await PopupNavigation.Instance.PopAsync();
+        }
         private async void AddExperience(object sender, EventArgs e)
         {
             await PopupNavigation.Instance.PushAsync(new SelectType());

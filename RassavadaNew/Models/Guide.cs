@@ -25,5 +25,7 @@ namespace RassavadaNew.Models
         public string ImgUrl { get; set; }
         public string IdProofUrl { get; set; }
 
+
+
     }
 }

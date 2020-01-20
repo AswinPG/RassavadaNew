@@ -4,7 +4,9 @@ using RassavadaNew.Experiences;
 using RassavadaNew.LeaderBoard;
 using RassavadaNew.Models;
 using RassavadaNew.Packages;
+using RassavadaNew.Popups;
 using RassavadaNew.Profile;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -28,9 +30,7 @@ namespace RassavadaNew.Home
         public HomePage()
         {
             
-            InitializeComponent();
             GetUser();
-            var s = Application.Current.Properties["User"];
         }
 
 
@@ -74,7 +74,7 @@ namespace RassavadaNew.Home
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
-                postParameters.Add("UserId", "test");
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 string returnResponseText = responseReader.ReadToEnd();
@@ -92,39 +92,36 @@ namespace RassavadaNew.Home
 
         private async void Expadded_Tapped(object sender, EventArgs e)
         {
-            MainActivityIndicator.IsVisible = true;
-            MainActivityIndicator.IsRunning = true;
-            Loadinglabel.IsVisible = true;
+            await PopupNavigation.Instance.PushAsync(new LoadingPopup());
             await Navigation.PushAsync(new ExperiencePage());
-            MainActivityIndicator.IsVisible = false;
-            MainActivityIndicator.IsRunning = false;
-            Loadinglabel.IsVisible = false;
+            await PopupNavigation.Instance.PopAsync();
 
         }
         private async void Pkgcrtd_Tapped(object sender, EventArgs e)
         {
-            LoadingLayout.IsVisible = true;
+            await PopupNavigation.Instance.PushAsync(new LoadingPopup());
             await Navigation.PushAsync(new PackagePages());
-            LoadingLayout.IsVisible = false;
+            await PopupNavigation.Instance.PopAsync();
         }
         
 
         private async void Profile_Tapped(object sender, EventArgs e)
         {
-            LoadingLayout.IsVisible = true;
+            await PopupNavigation.Instance.PushAsync(new LoadingPopup());
             await Navigation.PushAsync(new ProfilePage(entity));
-            LoadingLayout.IsVisible = false;
+            await PopupNavigation.Instance.PopAsync();
         }
 
         private async void LeaderBoard_Tapped(object sender, EventArgs e)
         {
-            LoadingLayout.IsVisible = true;
-            await Navigation.PushAsync(new LeaderBoardPage());
-            LoadingLayout.IsVisible = false;
+            await PopupNavigation.Instance.PushAsync(new LoadingPopup());
+            await Navigation.PushAsync(new LeaderBoardPage(rassavadaEntity));
+            await PopupNavigation.Instance.PopAsync();
         }
 
         private async void Share_Tapped(object sender, EventArgs e)
         {
+            await PopupNavigation.Instance.PushAsync(new LoadingPopup());
             await Share.RequestAsync(new ShareTextRequest
             {
                 Text = "Join me on Rassavada",
@@ -132,6 +129,7 @@ namespace RassavadaNew.Home
                 Title = "Rassavada",
                 Subject = "Rassavada blabh blah blah"
             });
+            await PopupNavigation.Instance.PopAsync();
         }
     }
 }

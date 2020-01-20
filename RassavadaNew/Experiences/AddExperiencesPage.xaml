@@ -12,6 +12,7 @@
     mc:Ignorable="d">
     <NavigationPage.TitleView>
         <Label
+            x:Name="TitleLabel"
             FontAttributes="Bold"
             FontSize="21"
             Text="Add Experience"
@@ -131,7 +132,7 @@
                             VerticalOptions="Center"
                             WidthRequest="20" />
                         <Label
-                            Text="Cost of Visit"
+                            Text="Cost"
                             TextColor="Black"
                             VerticalOptions="Center">
                             <Label.FontFamily>

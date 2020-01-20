@@ -2,6 +2,7 @@
 using RassavadaNew.API;
 using RassavadaNew.Experiences;
 using RassavadaNew.Models;
+using RassavadaNew.Popups;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -62,8 +63,9 @@ namespace RassavadaNew.Packages
             try
             {
 
-                if(CostEntry.Text !="" && DetailEntry.Text != "" && NameEntry.Text != "")
-                {
+                if (CostEntry.Text != "" && DetailEntry.Text != "" && NameEntry.Text != "")
+                { 
+                    await PopupNavigation.Instance.PushAsync(new LoadingPopup());
                     SaveSvg.IsEnabled = false;
                     //package.Cost = float.Parse(CostEntry.Text);
                     package.Detail = DetailEntry.Text;
@@ -74,7 +76,7 @@ namespace RassavadaNew.Packages
                     
                     postParameters = Dict;
 
-                    postParameters.Add("UserId", "test");
+                    postParameters.Add("UserId", Application.Current.Properties["User"]);
                     HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                     // Process response  
                     StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
@@ -82,7 +84,7 @@ namespace RassavadaNew.Packages
                     //postParameters.
                     webResponse.Close();
                     await Navigation.PopAsync();
-                    await PopupNavigation.Instance.PopAsync();
+                    await PopupNavigation.Instance.PopAllAsync();
                 }
                 else
                 {
@@ -98,6 +100,7 @@ namespace RassavadaNew.Packages
             {
                 await DisplayAlert("Server Down", "Please try again later", "Ok");
                 SaveSvg.IsEnabled = true;
+                await PopupNavigation.Instance.PopAsync();
             }
             
 

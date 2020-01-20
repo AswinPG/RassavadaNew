@@ -2,6 +2,8 @@
 using RassavadaNew.API;
 using RassavadaNew.Experiences;
 using RassavadaNew.Models;
+using RassavadaNew.Popups;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,7 +24,6 @@ namespace RassavadaNew.Packages
         public PackagePages()
         {
             InitializeComponent();
-
             package = new PackageList()
             {
                 Package = new List<Package>
@@ -34,74 +35,11 @@ namespace RassavadaNew.Packages
                 }
             };
 
-            //List<Pack> ViewPackage = new List<Pack>
-            //{
-            //    new Pack
-            //    {
-            //        Picture="Mockpic.png",
-            //        Package="Package 1",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //    new Pack
-            //    {
-            //        Picture="HomeSVG.png",
-            //        Package="Package 2",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //     new Pack
-            //    {
-            //        Picture="Mockpic.png",
-            //        Package="Package 3",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //    new Pack
-            //    {
-            //        Picture="HomeSVG.png",
-            //        Package="Package 4",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //    new Pack
-            //    {
-            //        Picture="Mockpic.png",
-            //        Package="Package",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //    new Pack
-            //    {
-            //        Picture="Mockpic.png",
-            //        Package="Package",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //     new Pack
-            //    {
-            //        Picture="HomeSVG.png",
-            //        Package="Package",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    },
-            //    new Pack
-            //    {
-            //        Picture="Mockpic.png",
-            //        Package="Package",
-            //        Cost="10,000",
-            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-            //    }
-
-
-            //};
-            //PackageCollectionView.ItemsSource = ViewPackage;
-
 
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
-                postParameters.Add("UserId", "test");
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
                 string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackDisplay";
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
@@ -128,18 +66,23 @@ namespace RassavadaNew.Packages
 
         private async void PlaceCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             if (PackageCollectionView.SelectedItem != null)
             {
-                Package package = (Package)e.CurrentSelection[0];
+                await PopupNavigation.Instance.PushAsync(new LoadingPopup());
+                Package package = (Package)e.CurrentSelection[0]; 
                 await Navigation.PushAsync(new PackageDetailPage(package));
             }
 
             PackageCollectionView.SelectedItem = null;
+            await PopupNavigation.Instance.PopAsync();
         }
+  
     }
 
     public class PackageList
     {
         public List<Package> Package { get; set; } 
     }
+    
 }

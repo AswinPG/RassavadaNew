@@ -24,6 +24,9 @@ namespace RassavadaNew.Models
         public string UserId { get; set; }
         public string HomeName { get; set; }
         public string HomeAddress { get; set; }
+        public string PackAdd { get; set; }
+        public string PlaceAdd { get; set; }
+        public string PhotoAdd { get; set; }
 
     }
 }

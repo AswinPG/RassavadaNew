@@ -154,6 +154,7 @@
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
+                            x:Name="PackCrLabel"
                             Grid.Row="0"
                             Grid.Column="2"
                             FontFamily="Poppins-Medium.ttf#Poppins-Medium"
@@ -176,6 +177,7 @@
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
+                            x:Name="ExpCrLabel"
                             Grid.Row="1"
                             Grid.Column="2"
                             FontFamily="Poppins-Medium.ttf#Poppins-Medium"
@@ -198,6 +200,7 @@
                             TextColor="Black"
                             VerticalOptions="Center" />
                         <Label
+                            x:Name="PicCrLabel"
                             Grid.Row="2"
                             Grid.Column="2"
                             FontFamily="Poppins-Medium.ttf#Poppins-Medium"

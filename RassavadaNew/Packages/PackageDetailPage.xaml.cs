@@ -40,7 +40,7 @@ namespace RassavadaNew.Packages
             try
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
-                postParameters.Add("UserId", "test");
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
                 postParameters.Add("docId", Pack.docId);
                 string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageSinglePackDisplay";
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");

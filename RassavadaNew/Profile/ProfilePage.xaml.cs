@@ -1,4 +1,5 @@
 ﻿using RassavadaNew.Models;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +26,18 @@ namespace RassavadaNew.Profile
             PhoneNumberLabel.Text = "Phone Number : " + rassavadaEntity.PhoneNo;
             AddressLabel.Text = "Address : " + rassavadaEntity.HomeAddress;
             Vehiclelabel.Text = "Vehicle Status : " + rassavadaEntity.Vehicle;
+            PackCrLabel.Text = rassavadaEntity.PackAdd;
+            ExpCrLabel.Text = rassavadaEntity.PlaceAdd;
+            PicCrLabel.Text = rassavadaEntity.PhotoAdd;
         }
 
         private async void Edit_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new EditProfilePage());
+        }
+        private async void PopPopup()
+        {
+            await PopupNavigation.Instance.PopAsync();
         }
     }
 }
