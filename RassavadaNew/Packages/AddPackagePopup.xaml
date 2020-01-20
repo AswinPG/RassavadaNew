@@ -101,6 +101,7 @@
                         </Entry.FontFamily>
                     </Entry>
                     <forms:SvgCachedImage
+                        x:Name="SaveSvg"
                         Grid.Row="6"
                         Margin="15,0,15,0"
                         Source="doneGradient.svg">

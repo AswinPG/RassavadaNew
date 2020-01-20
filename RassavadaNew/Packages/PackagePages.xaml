@@ -78,7 +78,7 @@
 
                                 </StackLayout>
                                 <StackLayout Grid.Column="1" VerticalOptions="Center">
-                                    <Label FontSize="Medium" Text="{Binding Package}">
+                                    <Label FontSize="Medium" Text="{Binding Name}">
                                         <Label.FontFamily>
                                             <OnPlatform x:TypeArguments="x:String">
                                                 <On Platform="Android" Value="Poppins-Medium.ttf#Poppins-Medium" />
@@ -86,7 +86,7 @@
                                         </Label.FontFamily>
                                     </Label>
                                     <Label
-                                        Margin="0,-10,0,0"
+                                        Margin="0,0,0,0"
                                         FontAttributes="Bold"
                                         FontSize="Small"
                                         Text="{Binding Cost}">
@@ -98,10 +98,10 @@
                                     </Label>
                                     <ScrollView Orientation="Horizontal">
                                         <Label
-                                            Margin="0,-5,0,0"
+                                            Margin="0,0,0,0"
                                             FontSize="Small"
                                             LineBreakMode="TailTruncation"
-                                            Text="{Binding Details}">
+                                            Text="{Binding Detail}">
                                             <Label.FontFamily>
                                                 <OnPlatform x:TypeArguments="x:String">
                                                     <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />

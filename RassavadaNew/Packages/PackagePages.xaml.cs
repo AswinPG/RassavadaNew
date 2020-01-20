@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using RassavadaNew.API;
+using RassavadaNew.Experiences;
 using RassavadaNew.Models;
 using System;
 using System.Collections.Generic;
@@ -17,11 +18,12 @@ namespace RassavadaNew.Packages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PackagePages : ContentPage
     {
+        PackageList package;
         public PackagePages()
         {
             InitializeComponent();
 
-            PackageList package = new PackageList()
+            package = new PackageList()
             {
                 Package = new List<Package>
                 {
@@ -32,68 +34,68 @@ namespace RassavadaNew.Packages
                 }
             };
 
-            List<Pack> ViewPackage = new List<Pack>
-            {
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package 1",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="HomeSVG.png",
-                    Package="Package 2",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                 new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package 3",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="HomeSVG.png",
-                    Package="Package 4",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                 new Pack
-                {
-                    Picture="HomeSVG.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                },
-                new Pack
-                {
-                    Picture="Mockpic.png",
-                    Package="Package",
-                    Cost="10,000",
-                    Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
-                }
+            //List<Pack> ViewPackage = new List<Pack>
+            //{
+            //    new Pack
+            //    {
+            //        Picture="Mockpic.png",
+            //        Package="Package 1",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //    new Pack
+            //    {
+            //        Picture="HomeSVG.png",
+            //        Package="Package 2",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //     new Pack
+            //    {
+            //        Picture="Mockpic.png",
+            //        Package="Package 3",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //    new Pack
+            //    {
+            //        Picture="HomeSVG.png",
+            //        Package="Package 4",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //    new Pack
+            //    {
+            //        Picture="Mockpic.png",
+            //        Package="Package",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //    new Pack
+            //    {
+            //        Picture="Mockpic.png",
+            //        Package="Package",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //     new Pack
+            //    {
+            //        Picture="HomeSVG.png",
+            //        Package="Package",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    },
+            //    new Pack
+            //    {
+            //        Picture="Mockpic.png",
+            //        Package="Package",
+            //        Cost="10,000",
+            //        Details="Lorem ipsum dolor sit amet, consectetur adip isc ing elit, sed do eiusmod tempor incididunt ut abore et dolore magna aliqua. Ut enim ad imniamnon."
+            //    }
 
 
-            };
-            PackageCollectionView.ItemsSource = ViewPackage;
+            //};
+            //PackageCollectionView.ItemsSource = ViewPackage;
 
 
             try
@@ -107,6 +109,7 @@ namespace RassavadaNew.Packages
                 //rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
 
                 package = JsonConvert.DeserializeObject<PackageList>(returnResponseText);
+                PackageCollectionView.ItemsSource = package.Package;
                 webResponse.Close();
             }
             catch (Exception e)
@@ -127,7 +130,8 @@ namespace RassavadaNew.Packages
         {
             if (PackageCollectionView.SelectedItem != null)
             {
-                await Navigation.PushAsync(new PackageDetailPage());
+                Package package = (Package)e.CurrentSelection[0];
+                await Navigation.PushAsync(new PackageDetailPage(package.docId));
             }
 
             PackageCollectionView.SelectedItem = null;

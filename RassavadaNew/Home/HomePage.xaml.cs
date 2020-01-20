@@ -17,6 +17,7 @@ namespace RassavadaNew.Home
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
+        RassavadaEntity entity;
         public HomePage(RassavadaEntity rassavadaEntity)
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace RassavadaNew.Home
                 PointsLabel.Text = rassavadaEntity.Points + " Points >";
             LowPointsLabel.Text = rassavadaEntity.low.ToString();
             HighPointsLabel.Text = rassavadaEntity.high.ToString();
+            entity = rassavadaEntity;
         }
 
         private async void Expadded_Tapped(object sender, EventArgs e)
@@ -49,7 +51,7 @@ namespace RassavadaNew.Home
         private async void Profile_Tapped(object sender, EventArgs e)
         {
             LoadingLayout.IsVisible = true;
-            await Navigation.PushAsync(new ProfilePage());
+            await Navigation.PushAsync(new ProfilePage(entity));
             LoadingLayout.IsVisible = false;
         }
 

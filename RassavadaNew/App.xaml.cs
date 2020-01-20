@@ -16,7 +16,8 @@ namespace RassavadaNew
             InitializeComponent();
             APIHelper.InitialiseClient();
 
-            MainPage = new NavigationPage(new HomePage(new Models.RassavadaEntity() { }))
+            //MainPage = new NavigationPage(new HomePage(new Models.RassavadaEntity() { }))
+            MainPage = new NavigationPage(new VerificationPage())
             {
                 BarBackgroundColor = Color.FromHex("#0BBE22")
             };

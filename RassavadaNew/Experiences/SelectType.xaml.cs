@@ -22,25 +22,25 @@ namespace RassavadaNew.Experiences
 
             private async void TouristPlaces(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new AddExperiencesPage());
+                await Navigation.PushAsync(new AddExperiencesPage(Models.ExpType.TouristPlace));
                 PopupNavigation.Instance.PopAsync();
             }
 
             private async void LocalPlaces(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new AddExperiencesPage());
+                await Navigation.PushAsync(new AddExperiencesPage(Models.ExpType.Food));
                 PopupNavigation.Instance.PopAsync();
             }
 
             private async void Culture(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new AddExperiencesPage());
+                await Navigation.PushAsync(new AddExperiencesPage(Models.ExpType.Cultural));
                 PopupNavigation.Instance.PopAsync();
             }
 
             private async void Historical(object sender, EventArgs e)
             {
-                await Navigation.PushAsync(new AddExperiencesPage());
+                await Navigation.PushAsync(new AddExperiencesPage(Models.ExpType.Historic));
                 PopupNavigation.Instance.PopAsync();
             }
 

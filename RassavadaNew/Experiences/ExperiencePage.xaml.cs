@@ -137,7 +137,7 @@ namespace RassavadaNew.Experiences
             
             if (ExperienceCollectionView.SelectedItem != null)
             {
-                string ex = e.CurrentSelection[0].ToString();
+                //string ex = e.CurrentSelection[0].ToString();
 
                 await Navigation.PushAsync(new ExperienceDetailPage(e.CurrentSelection[0]));
             }

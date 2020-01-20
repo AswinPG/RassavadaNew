@@ -1,7 +1,12 @@
-﻿using RassavadaNew.Experiences;
+﻿using Newtonsoft.Json;
+using RassavadaNew.API;
+using RassavadaNew.Experiences;
+using RassavadaNew.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +18,9 @@ namespace RassavadaNew.Packages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PackageDetailPage : ContentPage
     {
-        public PackageDetailPage()
+        private ExperiencesList experiences;
+
+        public PackageDetailPage(string PackId)
         {
             InitializeComponent();
             List<Exper> Places = new List<Exper>
@@ -86,11 +93,53 @@ namespace RassavadaNew.Packages
 
             };
             PlaceCollectionView.ItemsSource = Places;
+
+
+            experiences = new ExperiencesList
+            {
+                Experience = new List<Experience>
+                {
+                    new Experience()
+                    {
+                        Seasons = new List<string>(){}
+                    }
+                }
+            };
+            try
+            {
+                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                postParameters.Add("UserId", "test");
+                postParameters.Add("docId", PackId);
+                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageSinglePackDisplay";
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                string returnResponseText = responseReader.ReadToEnd();
+                //rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
+
+                experiences = JsonConvert.DeserializeObject<ExperiencesList>(returnResponseText);
+                PlaceCollectionView.ItemsSource = experiences.Experience;
+                webResponse.Close();
+            }
+            catch (Exception e)
+            {
+                DisplayAlert("No Internet", "Please check your internet connection", "Ok");
+            }
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new CreatePackagePage());
+        }
+
+        private async void PlaceCollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (PlaceCollectionView.SelectedItem != null)
+            {
+                //Experience experience = (Experience)e.CurrentSelection[0];
+                await Navigation.PushAsync(new ExperienceDetailPage(e.CurrentSelection[0]));
+            }
+
+            PlaceCollectionView.SelectedItem = null;
         }
     }
 }

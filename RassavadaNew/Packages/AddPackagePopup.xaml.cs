@@ -22,14 +22,18 @@ namespace RassavadaNew.Packages
 
         Package package = new Package()
         {
-            Experiences = new List<Experience>()
+            ExpID = new List<string>()
         };
         private Dictionary<string, object> postParameters;
 
         public AddPackagePopup(ExperiencesList experiencesList)
         {
             InitializeComponent();
-            package.Experiences = experiencesList.Experience;
+            for(int i = 0; i < experiencesList.Experience.Count; i++)
+            {
+                package.ExpID.Add(experiencesList.Experience[i].docId);
+            }
+            package.Picture = experiencesList.Experience[0].Picture;
         }
 
         public Dictionary<string, object> Dict { get; private set; }
@@ -39,35 +43,43 @@ namespace RassavadaNew.Packages
 
             try
             {
+
                 if(CostEntry.Text !="" && DetailEntry.Text != "" && NameEntry.Text != "")
                 {
-                    package.Cost = float.Parse(CostEntry.Text);
+                    SaveSvg.IsEnabled = false;
+                    //package.Cost = float.Parse(CostEntry.Text);
                     package.Detail = DetailEntry.Text;
                     package.Name = NameEntry.Text;
-                    package.Picture = package.Experiences[0].Picture;
+                    package.Cost = CostEntry.Text;
+                    var json = JsonConvert.SerializeObject(package);
+                    Dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
+                    string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+                    postParameters = Dict;
+
+                    postParameters.Add("UserId", "test");
+                    HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                    // Process response  
+                    StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                    var returnResponseText = responseReader.ReadToEnd();
+                    //postParameters.
+                    webResponse.Close();
+                    await Navigation.PopAsync();
+                    await PopupNavigation.Instance.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Complete form", "Please enter all the data to submit.", "Ok");
                 }
                 
 
 
 
-                var json = JsonConvert.SerializeObject(package);
-                Dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
-                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
-                postParameters = Dict;
-
-                postParameters.Add("UserId", "test");
-                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
-                // Process response  
-                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
-                var returnResponseText = responseReader.ReadToEnd();
-                //postParameters.
-                webResponse.Close();
-                await Navigation.PopAsync();
-                await PopupNavigation.Instance.PopAsync();
+                
             }
             catch(Exception w)
             {
                 await DisplayAlert("Server Down", "Please try again later", "Ok");
+                SaveSvg.IsEnabled = false;
             }
             
 

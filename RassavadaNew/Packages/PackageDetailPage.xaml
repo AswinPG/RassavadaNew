@@ -39,7 +39,10 @@
 
     <ContentPage.Content>
 
-        <CollectionView x:Name="PlaceCollectionView">
+        <CollectionView
+            x:Name="PlaceCollectionView"
+            SelectionChanged="PlaceCollectionView_SelectionChanged"
+            SelectionMode="Single">
             <CollectionView.ItemTemplate>
 
 

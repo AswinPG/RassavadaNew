@@ -28,16 +28,19 @@ namespace RassavadaNew.Experiences
         Dictionary<string, object> Dict;
         public ObservableCollection<MediaFile> Media { get; set; }
         public static IMultiMediaPickerService _multiMediaPickerService = DependencyService.Get<IMultiMediaPickerService>();
-        public string url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpEnter";
+        public string url;
 
-        public AddExperiencesPage()
+        public AddExperiencesPage(ExpType exptype)
         {
             InitializeComponent();
+            Media = new ObservableCollection<MediaFile>() { };
+            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpEnter";
             //_multiMediaPickerService = 
             experience2 = new Experience()
             {
                 Seasons = new List<string>() { },
                 //Images = new List<string>() { }
+                expType = exptype
             };
             _multiMediaPickerService.OnMediaPicked += (s, a) =>
             {
@@ -54,12 +57,22 @@ namespace RassavadaNew.Experiences
         public AddExperiencesPage(Experience experience)
         {
             InitializeComponent();
+            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpUpdate";
             experience2 = new Experience()
             {
                 Seasons = new List<string>() { },
                 //Images = new List<string>() { }
             };
             experience2 = experience;
+            Media = new ObservableCollection<MediaFile>()
+            {
+                new MediaFile()
+                {
+                    Path="",
+                    PreviewPath="",
+                    Type = MediaFileType.Image
+                }
+            };
 
             AddressEntry.Text = experience2.Address;
 
@@ -67,6 +80,7 @@ namespace RassavadaNew.Experiences
             NameEntry.Text = experience2.Name;
             DistFMC.Text = experience2.DistMajCentre;
             DetailEntry.Text = experience2.Details;
+            LocationEntry.Text = "Click to update location";
             MajorCityEntry.Text = experience2.MajCentre;
             Season.IsVisible = experience2.Seasonal;
             DetailEntry.Text = experience2.Details;
@@ -159,6 +173,7 @@ namespace RassavadaNew.Experiences
             var hasPermission = await CheckPermissionsAsync();
             if (hasPermission)
             {
+                Media.Clear();
                 Media = new ObservableCollection<MediaFile>();
                 await _multiMediaPickerService.PickPhotosAsync();
                 CLayout.IsVisible = true;
@@ -247,7 +262,7 @@ namespace RassavadaNew.Experiences
                 //    Picture = "njnj"
                 //};
 
-                if (AddressEntry.Text != null && TimeEntry.Text != null && NameEntry.Text != null && DistFMC.Text != null && DetailEntry != null && MajorCityEntry.Text != null && Media.Count >= 1)
+                if (AddressEntry.Text != null && TimeEntry.Text != null && NameEntry.Text != null && DistFMC.Text != null && DetailEntry != null && MajorCityEntry.Text != null && Media.Count != 0)
                 {
                     experience2.Address = AddressEntry.Text;
                     experience2.Seasonal = SeasonFrame.IsVisible;
@@ -255,10 +270,14 @@ namespace RassavadaNew.Experiences
                     experience2.Name = NameEntry.Text;
                     experience2.DistMajCentre = DistFMC.Text;
                     experience2.Details = DetailEntry.Text;
-                    experience2.Lat = MainMap.Pins[0].Position.Latitude.ToString();
-                    experience2.Long = MainMap.Pins[0].Position.Longitude.ToString();
+                    if(MainMap.Pins.Count != 0)
+                    {
+                        experience2.Lat = MainMap.Pins[0].Position.Latitude.ToString();
+                        experience2.Long = MainMap.Pins[0].Position.Longitude.ToString();
+                    }
+                    
                     experience2.MajCentre = MajorCityEntry.Text;
-                    experience2.expType = ExpType.Cultural;
+                    //experience2.expType = ExpType.Cultural;
                     
                     if(experience2.Seasonal == false)
                     {
@@ -271,11 +290,19 @@ namespace RassavadaNew.Experiences
                     Dict = JsonConvert.DeserializeObject<Dictionary<string, object>>(json);
                     string requestURL = url;
                     postParameters = Dict;
-                    for (int i = 0; i < Media.Count; i++)
+                    try
                     {
-                        DPbytes = File.ReadAllBytes(Media[i].Path);
-                        postParameters.Add("Image" + i, new FormUpload.FileParameter(DPbytes, Path.GetFileName(Media[i].Path), "image/png"));
+                        for (int i = 0; i < Media.Count; i++)
+                        {
+                            DPbytes = File.ReadAllBytes(Media[i].Path);
+                            postParameters.Add("Image" + i, new FormUpload.FileParameter(DPbytes, Path.GetFileName(Media[i].Path), "image/png"));
+                        }
                     }
+                    catch(Exception s)
+                    {
+                        
+                    }
+                    
                     postParameters.Add("UserId", "test");
                     HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                     // Process response  
@@ -292,7 +319,7 @@ namespace RassavadaNew.Experiences
             }
             catch (Exception z)
             {
-                await DisplayAlert("There seems to be a problem", "Please check your internet connection and try again", "Ok");
+                await DisplayAlert("There seems to be a problem", "Please check your internet connection and try again. You must add at least one image to update the data.", "Ok");
             }
             //await Navigation.PopAsync();
         }
