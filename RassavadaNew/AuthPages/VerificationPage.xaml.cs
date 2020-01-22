@@ -32,7 +32,8 @@ namespace RassavadaNew.AuthPages
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            App.Current.MainPage = new NavigationPage(new HomePage());
+            await Navigation.PopToRootAsync();
                 
         }
 

@@ -57,8 +57,8 @@ namespace RassavadaNew.AuthPages
                         await Navigation.PushAsync(new GetStartedPage());
                     else
                     {
-                        await Navigation.PopAsync();
-                        await Navigation.PushAsync(new HomePage());
+                        App.Current.MainPage = new NavigationPage(new HomePage());
+                        await Navigation.PopToRootAsync();
                     }
                         
 

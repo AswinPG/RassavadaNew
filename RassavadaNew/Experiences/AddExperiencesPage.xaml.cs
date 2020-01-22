@@ -4,6 +4,7 @@ using Plugin.Permissions.Abstractions;
 using RassavadaNew.API;
 using RassavadaNew.Models;
 using RassavadaNew.Popups;
+using RassavadaNew.RefreshLogic;
 using RassavadaNew.Services;
 using Rg.Plugins.Popup.Services;
 using System;
@@ -323,7 +324,8 @@ namespace RassavadaNew.Experiences
                     var returnResponseText = responseReader.ReadToEnd();
                     //postParameters.
                     webResponse.Close();
-                    await Navigation.PopAsync();
+                    await Navigation.PopToRootAsync();
+                    Refresh.RefreshHome();
                     await PopupNavigation.Instance.PopAsync();
                 }
                 else

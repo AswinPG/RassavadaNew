@@ -6,6 +6,7 @@ using RassavadaNew.Models;
 using RassavadaNew.Packages;
 using RassavadaNew.Popups;
 using RassavadaNew.Profile;
+using RassavadaNew.RefreshLogic;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -30,9 +31,10 @@ namespace RassavadaNew.Home
         public HomePage()
         {
             InitializeComponent();
-//#if DEBUG
-//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageHome";
-//#endif 
+            Refresh.SetHome(this);
+            //#if DEBUG
+            //            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageHome";
+            //#endif 
             requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageHome ";
             rassavadaEntity = new RassavadaEntity() { };
             GetUser();
@@ -40,7 +42,7 @@ namespace RassavadaNew.Home
 
 
 
-        private async void GetUser()
+        public async void GetUser()
         {
            
             

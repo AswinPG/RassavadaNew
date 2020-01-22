@@ -3,6 +3,7 @@ using RassavadaNew.API;
 using RassavadaNew.Experiences;
 using RassavadaNew.Models;
 using RassavadaNew.Popups;
+using RassavadaNew.RefreshLogic;
 using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
@@ -90,7 +91,8 @@ namespace RassavadaNew.Packages
                     var returnResponseText = responseReader.ReadToEnd();
                     //postParameters.
                     webResponse.Close();
-                    await Navigation.PopAsync();
+                    await Navigation.PopToRootAsync();
+                    Refresh.RefreshHome();
                     await PopupNavigation.Instance.PopAllAsync();
                 }
                 else
