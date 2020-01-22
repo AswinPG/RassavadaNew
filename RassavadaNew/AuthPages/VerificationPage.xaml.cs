@@ -18,10 +18,12 @@ namespace RassavadaNew.AuthPages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VerificationPage : ContentPage
     {
-        public VerificationPage()
+        public VerificationPage(string name,string email,string path)
         {
             InitializeComponent();
-            
+            NameLabel.Text = name;
+            EmailLabel.Text = email;
+            ImageLabel.Source = path;
 
             //Type type = Type.GetType(returnResponseText);
             //object oClass = Activator.CreateInstance(type);

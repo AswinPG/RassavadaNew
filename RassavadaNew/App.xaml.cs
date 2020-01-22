@@ -17,20 +17,45 @@ namespace RassavadaNew
     public partial class App : Application
     {
         private RassavadaEntity rassavadaEntity;
-
+        string requestURL;
         public App()
         {
+            string returnResponseText = "";
             InitializeComponent();
             APIHelper.InitialiseClient();
-
+            try
+            {
+//#if DEBUG
+//                requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/Register";
+//#endif
+                requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/Register";
+                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                returnResponseText = responseReader.ReadToEnd();
+                webResponse.Close();
+            }
+            catch (Exception e) { }
             //MainPage = new NavigationPage(new HomePage(new Models.RassavadaEntity() { }))
-
+            
             if (Application.Current.Properties.ContainsKey("User"))
             {
-                MainPage = new NavigationPage(new HomePage())
+                if(returnResponseText == "true")
                 {
-                    BarBackgroundColor = Color.FromHex("#0BBE22")
-                };
+                    MainPage = new NavigationPage(new HomePage())
+                    {
+                        BarBackgroundColor = Color.FromHex("#0BBE22")
+                    };
+                }
+                else
+                {
+                    MainPage = new NavigationPage(new GetStartedPage())
+                    {
+                        BarBackgroundColor = Color.FromHex("#0BBE22")
+                    };
+                }
+                
             }
             else
             {

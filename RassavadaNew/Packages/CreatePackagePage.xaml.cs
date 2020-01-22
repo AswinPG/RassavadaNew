@@ -24,11 +24,13 @@ namespace RassavadaNew.Packages
         private ExperiencesList experiencesinpackage;
         private int count = 0;
         private bool edit = false;
-        string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpDisplay";
+        string requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageExpDisplay";
         public CreatePackagePage()
         {
             InitializeComponent();
-
+//#if DEBUG
+//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpDisplay";
+//#endif
 
             experiences = new ExperiencesList
             {

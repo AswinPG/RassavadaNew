@@ -21,6 +21,7 @@ namespace RassavadaNew.Packages
     public partial class PackagePages : ContentPage
     {
         PackageList package;
+        string requestURL;
         public PackagePages()
         {
             InitializeComponent();
@@ -40,7 +41,10 @@ namespace RassavadaNew.Packages
             {
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
                 postParameters.Add("UserId", Application.Current.Properties["User"]);
-                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackDisplay";
+//#if DEBUG
+//                requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackDisplay";
+//#endif
+                requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PagePackDisplay";
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 string returnResponseText = responseReader.ReadToEnd();

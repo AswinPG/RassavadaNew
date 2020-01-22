@@ -36,7 +36,11 @@ namespace RassavadaNew.Experiences
         {
             InitializeComponent();
             Media = new ObservableCollection<MediaFile>() { };
-            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpEnter";
+//#if DEBUG
+//            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpEnter";
+//#endif
+
+            url = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageExpEnter";
             //_multiMediaPickerService = 
             experience2 = new Experience()
             {
@@ -60,7 +64,11 @@ namespace RassavadaNew.Experiences
         {
             InitializeComponent();
             TitleLabel.Text = "Edit Experience";
-            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpUpdate";
+//#if DEBUG
+//            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpUpdate";
+//#endif
+
+            url = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageExpUpdate";
             experience2 = new Experience()
             {
                 Seasons = new List<string>() { },

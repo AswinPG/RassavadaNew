@@ -23,7 +23,7 @@ namespace RassavadaNew.AuthPages
     public partial class LoginPage : ContentPage
     {
         private PermissionStatus status;
-        
+        string requestURL;
 
         public static IGoogleAuthenticator _googleManager = DependencyService.Get<IGoogleAuthenticator>();
 
@@ -39,16 +39,43 @@ namespace RassavadaNew.AuthPages
         private async void PermisionValidator()
         {
             status = await CrossPermissions.Current.CheckPermissionStatusAsync(Permission.LocationWhenInUse);
-            if (status == PermissionStatus.Granted )
+            try
             {
-                await Navigation.PushAsync(new GetStartedPage());
+//#if DEBUG
+//                requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/Register";
+//#endif
+                requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/Register";
+                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                postParameters.Add("UserId", Application.Current.Properties["User"]);
+                HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
+                StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
+                string returnResponseText = responseReader.ReadToEnd();               
+                webResponse.Close();
+                if (status == PermissionStatus.Granted)
+                {
+                    if (returnResponseText == "false")
+                        await Navigation.PushAsync(new GetStartedPage());
+                    else
+                    {
+                        await Navigation.PopAsync();
+                        await Navigation.PushAsync(new HomePage());
+                    }
+                        
 
+                }
+                else
+                {
+                    await DisplayAlert("Need Permissions", "You must grant us location permissions to use this app", "ok");
+                    GetPermisions();
+                }
             }
-            else
+            catch(Exception e)
             {
-                await DisplayAlert("Need Permissions", "You must grant us location permissions to use this app", "ok");
-                GetPermisions();
+                await DisplayAlert("Connection Error", "Please check your internet connection", "Ok");
             }
+
+
+            
         }
             
 

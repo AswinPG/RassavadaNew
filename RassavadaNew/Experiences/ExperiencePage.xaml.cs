@@ -18,11 +18,15 @@ namespace RassavadaNew.Experiences
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ExperiencePage : ContentPage
     {
-        string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpDisplay";
+        string requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageExpDisplay";
+
         ExperiencesList experiences { get; set; }
         public ExperiencePage()
         {
             InitializeComponent();
+//#if DEBUG
+//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpDisplay";
+//#endif
             experiences = new ExperiencesList
             {
                 Experience = new List<Experience>

@@ -34,7 +34,7 @@ namespace RassavadaNew.Droid.Interfaces
             Instance = this;
             GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
                                                              .RequestEmail()
-                                                             .RequestIdToken("139956008988-cnu7ao7e3fab4ikd7uqcceghpe4qq8q0.apps.googleusercontent.com")
+                                                             .RequestIdToken("480528573651-rulcvunafvsrd8td19un9n8uudevic3d.apps.googleusercontent.com")
                                                              .Build();
 
             _googleApiClient = new GoogleApiClient.Builder(((MainActivity)Forms.Context).ApplicationContext)

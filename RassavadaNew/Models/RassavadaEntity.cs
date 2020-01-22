@@ -27,6 +27,7 @@ namespace RassavadaNew.Models
         public string PackAdd { get; set; }
         public string PlaceAdd { get; set; }
         public string PhotoAdd { get; set; }
+        public string ProfilePic { get; set; }
 
     }
 }

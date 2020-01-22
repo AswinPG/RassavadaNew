@@ -18,17 +18,26 @@ namespace RassavadaNew.LeaderBoard
     public partial class LeaderBoardPage : ContentPage
     {
         LeaderList leaderList = new LeaderList() { };
+        
         public LeaderBoardPage(RassavadaEntity rassavadaEntity)
         {
             InitializeComponent();
+            string requestURL;
             NameLabel.Text = rassavadaEntity.Name;
+            PropicImage.Source = rassavadaEntity.ProfilePic;
             LevelLabel.Text = "Local Giude Level " + rassavadaEntity.level;
             PointsLabel.Text = rassavadaEntity.Points + "";
 
 
             try
             {
-                string requestURL = "";
+//#if DEBUG
+//                requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageLeaderboard";
+//#endif
+
+
+                requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageLeaderboard";
+
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
                 postParameters.Add("UserId", Application.Current.Properties["User"]);
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
@@ -44,7 +53,7 @@ namespace RassavadaNew.LeaderBoard
                 DisplayAlert("No Internet", "Please check your internet connection", "Ok");
             }
 
-            MainCollectionView.ItemsSource = leaderList.Leaderdoard;
+            MainCollectionView.ItemsSource = leaderList.Leaderboard;
         }
     }
 }

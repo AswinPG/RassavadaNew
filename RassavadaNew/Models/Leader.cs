@@ -14,6 +14,6 @@ namespace RassavadaNew.Models
     }
     public class LeaderList
     {
-        public List<Leader> Leaderdoard { get; set; }
+        public List<Leader> Leaderboard { get; set; }
     }
 }

@@ -23,6 +23,7 @@
                     Source="HomeSVG.png"
                     VerticalOptions="Start" />
                 <ff:CachedImage
+                    x:Name="ProPicImage"
                     Margin="0,10,0,0"
                     HeightRequest="80"
                     Source="HomeSVG.png"
@@ -35,6 +36,7 @@
                     </ff:CachedImage.Transformations>
                 </ff:CachedImage>
                 <Label
+                    x:Name="NameLabel"
                     CharacterSpacing="1"
                     FontAttributes="Bold"
                     FontSize="22"

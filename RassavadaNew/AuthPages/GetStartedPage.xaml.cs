@@ -6,6 +6,8 @@ using Plugin.Permissions.Abstractions;
 using RassavadaNew.API;
 using RassavadaNew.Home;
 using RassavadaNew.Models;
+using RassavadaNew.Popups;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +27,7 @@ namespace RassavadaNew.AuthPages
     public partial class GetStartedPage : ContentPage
     {
 
-        string url = "https://us-central1-e0-rasvada.cloudfunctions.net/helloWorld";
+        string url;
         Xamarin.Essentials.Location CurrentLocation;
         Dictionary<string, object> Dict;
         byte[] IDbytes;
@@ -40,6 +42,10 @@ namespace RassavadaNew.AuthPages
             try
             {
                 InitializeComponent();
+//#if DEBUG
+//                url = "https://us-central1-e0-rasvada.cloudfunctions.net/helloWorld";
+//#endif
+                url = "https://us-central1-e0-trouvailler.cloudfunctions.net/helloWorld";
             }
             catch(Exception e)
             {
@@ -226,6 +232,7 @@ namespace RassavadaNew.AuthPages
         {
             if(PhoneNoEntry.Text != "" && PhoneNoEntry.Text.Length == 13 && CEmailEntry.Text != "" && NameEntry.Text != "" && CurrentLocEntry.Text != "" && HomeTownLabel.Text != "" && AgeEntry.Text != "" && GenderPicker.SelectedItem.ToString() != "" && PickedID != null && PickedPhoto != null)
             {
+                await PopupNavigation.Instance.PushAsync(new LoadingPopup());
                 rassavadaUser.Name = NameEntry.Text;
                 rassavadaUser.PhoneNo = PhoneNoEntry.Text;
                 rassavadaUser.LocationLat = CurrentLocation.Latitude.ToString();
@@ -244,7 +251,7 @@ namespace RassavadaNew.AuthPages
                 rassavadaUser.Age = AgeEntry.Text;
                 rassavadaUser.CEmail = CEmailEntry.Text;
                 rassavadaUser.Gender = GenderPicker.SelectedItem.ToString();
-                rassavadaUser.UserId = "test";
+                rassavadaUser.UserId = Application.Current.Properties["User"].ToString();
                 rassavadaUser.HomeName = LabelEntry.Text;
                 rassavadaUser.HomeAddress = AdrressEntry.Text;
 
@@ -258,8 +265,8 @@ namespace RassavadaNew.AuthPages
                     string requestURL = url;
                     Dictionary<string, object> postParameters = Dict;
                     // Add your parameters here  
-                    postParameters.Add("fileToUpload", new FormUpload.FileParameter(DPbytes, Path.GetFileName(PickedPhoto.Path), "image/png"));
-                    postParameters.Add("IdToUpload", new FormUpload.FileParameter(IDbytes, Path.GetFileName(PickedID.Path), "image/png"));
+                    postParameters.Add("ProfilePic", new FormUpload.FileParameter(DPbytes, Path.GetFileName(PickedPhoto.Path), "image/png"));
+                    postParameters.Add("DrivingLicience", new FormUpload.FileParameter(IDbytes, Path.GetFileName(PickedID.Path), "image/png"));
                     //postParameters.Add("Id2ToUpload", new FormUpload.FileParameter(IDbytes, Path.GetFileName(PickedID.Path), "image/png"));
                     string userAgent = "Someone";
                     HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, userAgent, postParameters, "", "");
@@ -268,6 +275,8 @@ namespace RassavadaNew.AuthPages
                     var returnResponseText = responseReader.ReadToEnd();
                     //postParameters.
                     webResponse.Close();
+                    await Navigation.PushAsync(new VerificationPage(rassavadaUser.Name, rassavadaUser.CEmail, PickedPhoto.Path));
+                    await PopupNavigation.Instance.PopAsync();
                 }
                 //catch (Exception exp) { }
 
@@ -276,12 +285,13 @@ namespace RassavadaNew.AuthPages
                 catch (Exception x)
                 {
                     await DisplayAlert("Oops", "We cannot reach our servers right now. Please try again later", "Ok");
+                    await PopupNavigation.Instance.PopAsync();
                 }
             }
             else
             {
                 await DisplayAlert("Complete the form", "Please fill in all the details to continue registration", "Ok");
-                await Navigation.PushAsync(new VerificationPage());
+                
             }
 
             //try

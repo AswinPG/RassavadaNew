@@ -31,7 +31,11 @@ namespace RassavadaNew.Packages
         public AddPackagePopup(ExperiencesList experiencesList)
         {
             InitializeComponent();
-            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+//#if DEBUG
+//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackAdd";
+//#endif
+
+            requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PagePackAdd";
             for (int i = 0; i < experiencesList.Experience.Count; i++)
             {
                 package.ExpID.Add(experiencesList.Experience[i].docId);
@@ -43,7 +47,10 @@ namespace RassavadaNew.Packages
         public AddPackagePopup(ExperiencesList experiencesList, Package pack)
         {
             InitializeComponent();
-            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackUpdateEntry";
+//#if DEBUG
+//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PagePackUpdateEntry";
+//#endif
+            requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PagePackUpdateEntry";
             for (int i = 0; i < experiencesList.Experience.Count; i++)
             {
                 package.ExpID.Add(experiencesList.Experience[i].docId);

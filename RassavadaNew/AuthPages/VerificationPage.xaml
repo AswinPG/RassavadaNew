@@ -42,6 +42,7 @@
                 <StackLayout>
                     <forms:SvgCachedImage Margin="0,20,0,20" Source="vercon.svg" />
                     <ff:CachedImage
+                        x:Name="ImageLabel"
                         HeightRequest="80"
                         Source="HomeSVG.png"
                         WidthRequest="80">
@@ -50,6 +51,7 @@
                         </ff:CachedImage.Transformations>
                     </ff:CachedImage>
                     <Label
+                        x:Name="NameLabel"
                         CharacterSpacing="1"
                         FontAttributes="Bold"
                         FontSize="22"
@@ -63,6 +65,7 @@
                         </Label.FontFamily>
                     </Label>
                     <Label
+                        x:Name="EmailLabel"
                         CharacterSpacing="1"
                         HorizontalOptions="Center"
                         Text="stanmarton@outlook.com"

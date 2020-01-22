@@ -20,7 +20,7 @@ namespace RassavadaNew.Packages
     {
         private ExperiencesList experiences;
         private Package package;
-
+        string requestURL;
         public PackageDetailPage(Package Pack)
         {
             InitializeComponent();
@@ -42,7 +42,10 @@ namespace RassavadaNew.Packages
                 Dictionary<string, object> postParameters = new Dictionary<string, object>();
                 postParameters.Add("UserId", Application.Current.Properties["User"]);
                 postParameters.Add("docId", Pack.docId);
-                string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageSinglePackDisplay";
+//#if DEBUG
+//                requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageSinglePackDisplay";
+//#endif
+                requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageSinglePackDisplay";
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
                 string returnResponseText = responseReader.ReadToEnd();

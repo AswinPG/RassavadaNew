@@ -24,12 +24,17 @@ namespace RassavadaNew.Home
     public partial class HomePage : ContentPage
     {
         RassavadaEntity entity;
-        public string requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageHome";
+        public string requestURL;
         private RassavadaEntity rassavadaEntity;
 
         public HomePage()
         {
-            
+            InitializeComponent();
+//#if DEBUG
+//            requestURL = "https://us-central1-e0-rasvada.cloudfunctions.net/PageHome";
+//#endif 
+            requestURL = "https://us-central1-e0-trouvailler.cloudfunctions.net/PageHome ";
+            rassavadaEntity = new RassavadaEntity() { };
             GetUser();
         }
 
@@ -44,6 +49,8 @@ namespace RassavadaNew.Home
                 bool success = GetDetails();
                 if (success)
                 {
+                    NameLabel.Text = rassavadaEntity.Name;
+                    ProPicImage.Source = rassavadaEntity.ProfilePic;
                     LevelLabel.Text = "Local Guide Level " + rassavadaEntity.level;
                     MainProgressVBar.Progress = rassavadaEntity.Points / (rassavadaEntity.high - rassavadaEntity.low);
                     PointsLabel.Text = rassavadaEntity.Points + " Points >";
