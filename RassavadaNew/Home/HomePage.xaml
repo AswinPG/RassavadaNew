@@ -143,16 +143,17 @@
                         </ffsvg:SvgCachedImage.GestureRecognizers>
 
                     </ffsvg:SvgCachedImage>
-                    <ffsvg:SvgCachedImage
+                    <ff:CachedImage
                         Grid.Column="3"
                         HeightRequest="80"
                         HorizontalOptions="Center"
-                        Source="secset.svg">
-                        <ffsvg:SvgCachedImage.GestureRecognizers>
+                        Source="Sharepng.png"
+                        WidthRequest="80">
+                        <ff:CachedImage.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Share_Tapped" />
-                        </ffsvg:SvgCachedImage.GestureRecognizers>
+                        </ff:CachedImage.GestureRecognizers>
 
-                    </ffsvg:SvgCachedImage>
+                    </ff:CachedImage>
                 </Grid>
             </StackLayout>
         </ScrollView>

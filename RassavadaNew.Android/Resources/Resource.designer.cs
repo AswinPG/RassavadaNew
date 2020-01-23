@@ -6992,28 +6992,31 @@ namespace RassavadaNew.Droid
 			public const int Shapeb = 2131165595;
 			
 			// aapt resource value: 0x7F07019C
-			public const int SubmitGrad = 2131165596;
+			public const int Sharepng = 2131165596;
 			
 			// aapt resource value: 0x7F07019D
-			public const int submitGradient = 2131165597;
+			public const int SubmitGrad = 2131165597;
 			
 			// aapt resource value: 0x7F07019E
-			public const int time = 2131165598;
+			public const int submitGradient = 2131165598;
 			
 			// aapt resource value: 0x7F07019F
-			public const int tooltip_frame_dark = 2131165599;
+			public const int time = 2131165599;
 			
 			// aapt resource value: 0x7F0701A0
-			public const int tooltip_frame_light = 2131165600;
+			public const int tooltip_frame_dark = 2131165600;
 			
 			// aapt resource value: 0x7F0701A1
-			public const int Trophy = 2131165601;
+			public const int tooltip_frame_light = 2131165601;
 			
 			// aapt resource value: 0x7F0701A2
-			public const int type = 2131165602;
+			public const int Trophy = 2131165602;
 			
 			// aapt resource value: 0x7F0701A3
-			public const int vercon = 2131165603;
+			public const int type = 2131165603;
+			
+			// aapt resource value: 0x7F0701A4
+			public const int vercon = 2131165604;
 			
 			static Drawable()
 			{

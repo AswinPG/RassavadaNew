@@ -18,7 +18,7 @@
             <Label
                 FontAttributes="Bold"
                 FontFamily="Poppins-Medium.ttf#Poppins-Medium"
-                FontSize="22"
+                FontSize="21"
                 Text="Experiences"
                 TextColor="White"
                 VerticalOptions="Center" />
@@ -30,7 +30,7 @@
                 HorizontalOptions="EndAndExpand"
                 Source="AE.png"
                 VerticalOptions="Center"
-                WidthRequest="140">
+                WidthRequest="120">
                 <ff:CachedImage.GestureRecognizers>
                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="AddExperience" />
                 </ff:CachedImage.GestureRecognizers>
@@ -71,7 +71,7 @@
                                     Aspect="AspectFill"
                                     HeightRequest="70"
                                     HorizontalOptions="Start"
-                                    Source="{Binding Picture}"
+                                    Source="{Binding Thumbnail}"
                                     VerticalOptions="Center"
                                     WidthRequest="70">
                                     <ff:CachedImage.Transformations>

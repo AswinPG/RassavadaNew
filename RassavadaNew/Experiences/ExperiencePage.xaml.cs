@@ -39,7 +39,7 @@ namespace RassavadaNew.Experiences
             };
             try
             {
-                Dictionary<string, object> postParameters = new Dictionary<string, object>();
+                Dictionary<string, object> postParameters = new Dictionary<string, object>(); 
                 postParameters.Add("UserId", Application.Current.Properties["User"]);
                 HttpWebResponse webResponse = FormUpload.MultipartFormPost(requestURL, "someone", postParameters, "", "");
                 StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
@@ -47,7 +47,7 @@ namespace RassavadaNew.Experiences
                 //rassavadaEntity = JsonConvert.DeserializeObject<RassavadaEntity>(returnResponseText);
 
                 experiences = JsonConvert.DeserializeObject<ExperiencesList>(returnResponseText);
-                webResponse.Close();
+                 webResponse.Close();
             }
             catch(Exception e)
             {

@@ -69,7 +69,7 @@
                                                 Aspect="AspectFill"
                                                 HeightRequest="70"
                                                 HorizontalOptions="Start"
-                                                Source="{Binding Picture}"
+                                                Source="{Binding Thumbnail}"
                                                 VerticalOptions="Center"
                                                 WidthRequest="70">
                                                 <ff:CachedImage.Transformations>

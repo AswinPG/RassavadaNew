@@ -37,6 +37,15 @@ namespace RassavadaNew.Experiences
         {
             InitializeComponent();
             Media = new ObservableCollection<MediaFile>() { };
+
+            if(exptype == ExpType.Food)
+            {
+                NameLabel.Text = "Food Name";
+                AddressLabel.Text = "Address of the Hotel";
+                AvgLabel.IsVisible = false;
+                TimeEntry.Text = "It's a food ! Take your time.. !!!";
+                TimeEntry.IsVisible = false;
+            }
 //#if DEBUG
 //            url = "https://us-central1-e0-rasvada.cloudfunctions.net/PageExpEnter";
 //#endif

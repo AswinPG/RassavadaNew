@@ -56,7 +56,7 @@ namespace RassavadaNew.Packages
             {
                 package.ExpID.Add(experiencesList.Experience[i].docId);
             }
-            package.Picture = experiencesList.Experience[0].Picture;
+            package.Picture = experiencesList.Experience[0].Thumbnail;
             DetailEntry.Text = pack.Detail;
             NameEntry.Text = pack.Name;
             CostEntry.Text = pack.Cost;

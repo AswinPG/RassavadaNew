@@ -22,6 +22,7 @@ namespace RassavadaNew.Models
         public string AvgTime { get; set; }
         public string MajCentre { get; set; }
         public string DistMajCentre { get; set; }
+        public string Thumbnail { get; set; }
         public bool Seasonal { get; set; }
         public List<string> Seasons { get; set; }
         public List<string> Images { get; set; }
